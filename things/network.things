@@ -1,0 +1,10 @@
+Thing network:pingdevice:gateway_online [ hostname="192.168.1.150", macAddress="04:CF:8C:A0:8A:07" ]
+Thing network:pingdevice:mainrelay1_online [ hostname="192.168.1.6", macAddress="24:6F:28:AA:C5:D4" ]
+Thing network:pingdevice:bathroom1_online [ hostname="192.168.1.7", macAddress="50:02:91:4E:15:E7" ]
+Thing network:pingdevice:bathroom2_online [ hostname="192.168.1.221", macAddress="98:F4:AB:FB:B5:83" ]
+Thing network:pingdevice:PS4_online [ hostname="192.168.1.110", macAddress="E8:9E:B4:73:35:A3" ]
+Thing network:pingdevice:SamsungTV_online [ hostname="192.168.1.200", macAddress="50:56:BF:1F:A4:A0" ]
+Thing network:pingdevice:ESP005F543D_online [ hostname="192.168.1.5", macAddress="DC:4F:22:5F:54:3D" ]
+Thing network:pingdevice:nas_online [ hostname="192.168.1.2", macAddress="00:11:32:2C:A6:03" ]
+Thing network:pingdevice:HNG_online [ hostname="192.168.1.185", macAddress="dc:a6:32:c6:2e:d1" ]
+

@@ -1,0 +1,53 @@
+/////////********************************************************************////////
+Number    MainDoor_CS1_battery           "MainDoor_CS1_battery"            <battery>             (Xiaomi)    {channel="mqtt:topic:xiaomi:MainDoor_CS1_battery"}
+
+Number    MainDoor_CS1_linkquality       "MainDoor_CS1_linkquality"        <qualityofservice>    (Xiaomi)    {channel="mqtt:topic:xiaomi:MainDoor_CS1_linkquality"}
+
+Number    MainDoor_CS1_voltage           "MainDoor_CS1_voltage"            <energy>              (Xiaomi)    {channel="mqtt:topic:xiaomi:MainDoor_CS1_voltage"}
+
+Number    MainDoor_Switch_battery        "MainDoor_Switch_battery"         <battery>             (Xiaomi)    {channel="mqtt:topic:xiaomi:MainDoor_Switch_battery"}
+
+Number    MainDoor_Switch_linkquality    "MainDoor_Switch_linkquality"     <qualityofservice>    (Xiaomi)    {channel="mqtt:topic:xiaomi:MainDoor_Switch_linkquality"}
+
+Number    MainDoor_Switch_voltage        "MainDoor_Switch_voltage"         <energy>              (Xiaomi)    {channel="mqtt:topic:xiaomi:MainDoor_Switch_voltage"}
+
+Number    Srv_HT_battery                 "Srv_HT_battery"                  <battery>             (Xiaomi)    {channel="mqtt:topic:xiaomi:Srv_HT_battery"}
+
+Number    Srv_HT_linkquality             "Srv_HT_linkquality"              <qualityofservice>    (Xiaomi)    {channel="mqtt:topic:xiaomi:Srv_HT_linkquality"}
+
+Number    Srv_HT_voltage                 "Srv_HT_voltage"                  <energy>              (Xiaomi)    {channel="mqtt:topic:xiaomi:Srv_HT_voltage"}
+
+/////////********************************************************************////////
+Switch    gateway_online                                                                                     {channel="network:pingdevice:gateway_online:online"}
+
+String    gateway_send_command           "gateway_send_command[]"                                            {channel="miio:unsupported:07ED1AD9:actions#commands"}
+
+Switch    gateway_radio_on               "gateway_send_radioon"
+
+Number    gateway_radio_change           "gateway_send_change"
+
+Number    gateway_radio_volume           "gateway_radio_volume"
+
+
+String    gateway_command_rx                                                                                 {channel="mqtt:topic:xiaomi:gateway_command_rx"}
+
+String    gateway_command_tx                                                                                 {channel="mqtt:topic:xiaomi:gateway_command_tx"}
+
+Switch    radio_status                   "radio_status[]"                  <radiowithantenna>                {channel="mqtt:topic:xiaomi:radio_status"}
+Number    radio_volume                   "radio_volume[]"                  <radiosoundvolume>                {channel="mqtt:topic:xiaomi:radio_volume"}
+Number    radio_program_id               "radio_program_id[]"              <radiowaves>                      {channel="mqtt:topic:xiaomi:radio_program_id"}
+String    radio_program                  "radio_program[%s]"               <radiowaves>                      {channel="mqtt:topic:xiaomi:radio_program"}
+
+
+Switch    Gateway_LightSwitch            "Ночник[]"                        <light>                           {channel="mihome:gateway:04cf8ca08a07:04cf8ca08a07:brightness"}
+
+Dimmer    Gateway_Brightness             "Gateway_Brightness[%S]"          <dimmablelight>                   {channel="mihome:gateway:04cf8ca08a07:04cf8ca08a07:brightness"}
+
+Color     Gateway_Color                  "Gateway_Color[%S]"               <rgb>                             {channel="mihome:gateway:04cf8ca08a07:04cf8ca08a07:color"}
+
+Dimmer    Gateway_ColorTemperature       "Gateway_ColorTemperature[%S]"    <heating>                         {channel="mihome:gateway:04cf8ca08a07:04cf8ca08a07:colorTemperature"}
+
+Number    Gateway_AmbientLight           "Gateway_AmbientLight[%S]"        <sun>                             {channel="mihome:gateway:04cf8ca08a07:04cf8ca08a07:illumination"}
+
+
+

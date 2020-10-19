@@ -1,0 +1,113 @@
+/* =================================== ЦВЕТ ГОЛОВКИ */
+.mdl-layout__header {
+  background-color: #333;
+}
+
+/* =================================== настройки текста  */
+span.mdl-form__label {
+    font-family: Roboto;
+    font-size: 20px;
+    font-weight: normal;
+    color: #000000;
+}
+
+/* =================================== ФОН ЦВЕТ  */
+
+/*  HINTERGRUND STEUERELEMENTE */
+.page-content {
+  background-color: #D3D3D3;
+}
+/*  HINTERGRUND Links/Rechts Wrapper */
+.mdl-color--grey-100 {
+  background-color: #D3D3D3 !important;
+}
+
+/* =================================== КОНТРОЛЬНАЯ ЛИНИЯ-ВЫСОТА */
+
+/* ЛИНИЯ ВЫСОТА */
+html.ui-layout-condensed .mdl-form__row {
+    height: 45px;
+}
+
+/* ===================================фрейма ЭЛЕМЕНТЫ УПРАВЛЕНИЯ ЦВЕТА */
+
+/* ЭЛЕМЕНТЫ УПРАВЛЕНИЯ - ЦВЕТ ФОНА фрейма  */
+.mdl-color--white {
+    background-color: #C0C0C0 !important;
+}
+/* ЭЛЕМЕНТЫ УПРАВЛЕНИЯ - ЦВЕТ ТЕКСТА  */
+.mdl-color-text--grey-700 {
+    color: #e0e0e0 !important;
+}
+/* ЭЛЕМЕНТЫ УПРАВЛЕНИЯ - цвет промежуточного хода */
+.mdl-form__row {
+    border-bottom: 1px solid #2d2d2d;
+}
+
+
+/* =================================== Кнопка ЦВЕТ OFF */
+
+/* ПЕРЕКЛЮЧАТЕЛЬ Кнопка ЦВЕТ */
+.mdl-switch__thumb {
+  background-color: #fff;
+}
+/* Переключатель Кнопка Track */
+.mdl-switch__track {
+    background: #9b4f4f;
+}
+/* Кнопка SWITCH Button ЦВЕТ*/
+.mdl-switch__thumb {
+  background: #5b5757;
+}
+
+/* =================================== Кнопка ЦВЕТ ON */
+/* SWITCH Button Button-ЦВЕТ */
+.mdl-switch.is-checked .mdl-switch__thumb {
+    background: #d8d8d8;
+}
+/* SWITCH Button Track-ЦВЕТ*/
+.mdl-switch.is-checked .mdl-switch__track {
+    background: #66d693;
+}
+/* =================================== РАМА кривые */
+
+/* Fenster / Abschnitt Rundungen */
+.mdl-form {
+  /*+border-radius: 10px;*/
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -khtml-border-radius: 3px;
+  border-radius: 3px;
+}
+
+/* =================================== BUTTON ЦВЕТ - OFF */
+
+/* BUTTON SELECTED */
+BUTTON.mdl-button--accent {
+  border: 1px solid #5ddd90;
+  /*+box-shadow: 0px 0px !important;*/
+  /*-moz-box-shadow: 0px 0px !important;
+  -webkit-box-shadow: 0px 0px !important;
+  box-shadow: 0px 0px !important;*/
+  background-color: #333 !important;
+  color: #5ddd90 !important;
+}
+/* =================================== BUTTON ЦВЕТ - ON */
+
+/* BUTTON DESELECTED */
+.mdl-form__setpoint BUTTON, .mdl-form__rollerblind BUTTON, .mdl-form__buttons BUTTON {
+  color: white;
+  background-color: #545454;
+  /*+border-radius: 5px;*/
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  -khtml-border-radius: 2px;
+  border-radius: 2px;
+}
+
+/* =================================== BUTTON ЦВЕТ - HOVER */
+
+/* BUTTON HOVER ЦВЕТ */
+BUTTON.mdl-button:hover {
+  background-color: #5ddd90;
+}

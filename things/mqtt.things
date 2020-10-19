@@ -1,0 +1,207 @@
+mqtt:broker:mosquito "Mosquitto MQTT Broker"
+[ 
+  host="127.0.0.1",
+  secure=false,
+  port=1883,
+  qos=0,
+  retain=false,
+  clientid="someid",
+  //certificate="",
+  //certificatepin=false,
+  //publickey="",
+  //publickeypin=false,
+  keep_alive_time=30000,
+  reconnect_time=60000,
+  //lastwill_message="",
+  //lastwill_qos=1,
+  //lastwill_topic="",
+  username="",
+  password=""
+]
+
+  Thing mqtt:topic:livingroom  "MQTT_VAR_LIVINGROOM" (mqtt:broker:mosquito) @ "home"  
+  {  
+  Channels:
+	Type	switch	:	AutoHeater			"AutoHeater"		[	stateTopic="Openhab_VAR/LivingRoom/Auto_Heater" , commandTopic="Openhab_VAR/LivingRoom/Auto_Heater" , on="ON" , off="OFF" ,retained=true, postCommand=true]
+	Type	switch	:	Heater1				"Heater1"			[	stateTopic="Openhab_VAR/LivingRoom/Heater1_on" , commandTopic="Openhab_VAR/LivingRoom/Heater1_on_set" , on="ON" , off="OFF" ,retained=true, postCommand=true]
+	Type	switch	:	Heater2				"Heater2"			[	stateTopic="Openhab_VAR/LivingRoom/Heater2_on" , commandTopic="Openhab_VAR/LivingRoom/Heater2_on_set" , on="ON" , off="OFF" ,retained=true, postCommand=true]
+	Type	number	:	Temperature			"Temperature" 		[	stateTopic="Openhab_VAR/LivingRoom/Temperature"]
+	Type	number	:	Humidity			"Humidity" 			[	stateTopic="Openhab_VAR/LivingRoom/Humidity"]
+	Type	number	:	Set_Temperature		"Set_Temperature"	[	stateTopic="Openhab_VAR/LivingRoom/Set_Temperature"	,	commandTopic="Openhab_VAR/LivingRoom/Set_Temperature" ,retained=true]
+	Type	number	:	Auto_Temperature	"Auto_Temperature"	[	stateTopic="Openhab_VAR/LivingRoom/Auto_Temperature"]
+	Type 	contact	:	Window1				"Window1"			[	stateTopic="Openhab_VAR/LivingRoom/Window1",  on="ON" , off="OFF"]
+	
+	Type	switch	:	SetT_Global			"SetT_Global"		[	stateTopic="Openhab_VAR/LivingRoom/SetT_Global" , commandTopic="Openhab_VAR/LivingRoom/SetT_Global" , on="ON" , off="OFF" ,retained=true, postCommand=true]
+	Type	number	:	Morning_SetT		"Morning_SetT"		[	stateTopic="Openhab_VAR/LivingRoom/Morning_SetT"	,	commandTopic="Openhab_VAR/LivingRoom/Morning_SetT" ,retained=true]
+	Type	number	:	Day_SetT			"Day_SetT"			[	stateTopic="Openhab_VAR/LivingRoom/Day_SetT"	,	commandTopic="Openhab_VAR/LivingRoom/Day_SetT" ,retained=true]
+	Type	number	:	Evening_SetT		"Evening_SetT"		[	stateTopic="Openhab_VAR/LivingRoom/Evening_SetT"	,	commandTopic="Openhab_VAR/LivingRoom/Evening_SetT" ,retained=true]
+	Type	number	:	Night_SetT			"Night_SetT"		[	stateTopic="Openhab_VAR/LivingRoom/Night_SetT"	,	commandTopic="Openhab_VAR/LivingRoom/Night_SetT" ,retained=true]
+  }    
+
+ Thing mqtt:topic:kidsroom  "MQTT_VAR_KIDSROOM" (mqtt:broker:mosquito) @ "home"  
+  {  
+  Channels:
+	Type	switch	:	AutoHeater			"AutoHeater"		[	stateTopic="Openhab_VAR/KidsRoom/Auto_Heater" , commandTopic="Openhab_VAR/KidsRoom/Auto_Heater" ,  on="ON" , off="OFF" ,	retained=true, postCommand=true]
+	Type	switch	:	Heater				"Heater"			[	stateTopic="Openhab_VAR/KidsRoom/Heater_on" , commandTopic="Openhab_VAR/KidsRoom/Heater_on_set" ,  on="ON" , off="OFF" ,	retained=true, postCommand=true]
+	Type	number	:	Temperature			"Temperature" 		[	stateTopic="Openhab_VAR/KidsRoom/Temperature" ]
+	Type	number	:	Humidity			"Humidity" 			[	stateTopic="Openhab_VAR/KidsRoom/Humidity" ]
+	Type	number	:	Set_Temperature		"Set_Temperature"	[	stateTopic="Openhab_VAR/KidsRoom/Set_Temperature"	,	commandTopic="Openhab_VAR/KidsRoom/Set_Temperature", retained=true]
+	Type	number	:	Auto_Temperature	"Auto_Temperature"	[	stateTopic="Openhab_VAR/KidsRoom/Auto_Temperature"]
+	Type 	contact	:	Window				"Window"			[	stateTopic="Openhab_VAR/KidsRoom/Window",  on="ON" , off="OFF"]
+
+	Type	switch	:	SetT_Global			"SetT_Global"		[	stateTopic="Openhab_VAR/KidsRoom/SetT_Global" , commandTopic="Openhab_VAR/KidsRoom/SetT_Global" , on="ON" , off="OFF" ,retained=true, postCommand=true]
+	Type	number	:	Morning_SetT		"Morning_SetT"		[	stateTopic="Openhab_VAR/KidsRoom/Morning_SetT"	,	commandTopic="Openhab_VAR/KidsRoom/Morning_SetT" ,retained=true]
+	Type	number	:	Day_SetT			"Day_SetT"			[	stateTopic="Openhab_VAR/KidsRoom/Day_SetT"	,	commandTopic="Openhab_VAR/KidsRoom/Day_SetT" ,retained=true]
+	Type	number	:	Evening_SetT		"Evening_SetT"		[	stateTopic="Openhab_VAR/KidsRoom/Evening_SetT"	,	commandTopic="Openhab_VAR/KidsRoom/Evening_SetT" ,retained=true]
+	Type	number	:	Night_SetT			"Night_SetT"		[	stateTopic="Openhab_VAR/KidsRoom/Night_SetT"	,	commandTopic="Openhab_VAR/KidsRoom/Night_SetT" ,retained=true]
+  }
+
+ Thing mqtt:topic:kitchen  "MQTT_VAR_KITCHEN" (mqtt:broker:mosquito) @ "home"  
+  {  
+  Channels:
+	Type	switch	:	AutoHeater			"AutoHeater"		[	stateTopic="Openhab_VAR/Kitchen/Auto_Heater" , commandTopic="Openhab_VAR/Kitchen/Auto_Heater" ,  on="ON" , off="OFF" ,retained=true, postCommand=true]
+	Type	switch	:	Heater				"Heater"			[	stateTopic="Openhab_VAR/Kitchen/Heater_on" , commandTopic="Openhab_VAR/Kitchen/Heater_on_set" ,  on="ON" , off="OFF" ,retained=true, postCommand=true]
+	Type	number	:	Temperature			"Temperature" 		[	stateTopic="Openhab_VAR/Kitchen/Temperature"]
+	Type	number	:	Humidity			"Humidity" 			[	stateTopic="Openhab_VAR/Kitchen/Humidity"]
+	Type	number	:	Pressure			"Pressure" 			[	stateTopic="Openhab_VAR/Kitchen/Pressure"]
+	Type	number	:	Set_Temperature		"Set_Temperature"	[	stateTopic="Openhab_VAR/Kitchen/Set_Temperature"	,	commandTopic="Openhab_VAR/Kitchen/Set_Temperature" ,retained=true]
+	Type	number	:	Auto_Temperature	"Auto_Temperature"	[	stateTopic="Openhab_VAR/Kitchen/Auto_Temperature"]
+	Type	switch	:	Night_Boiler		"Night_Boiler"		[	stateTopic="Openhab_VAR/Kitchen/Night_Boiler" , commandTopic="Openhab_VAR/Kitchen/Night_Boiler" ,  on="ON" , off="OFF" ,retained=true, postCommand=true]
+	Type	switch	:	Boiler				"Boiler"			[	stateTopic="Openhab_VAR/Kitchen/Boiler_on" , commandTopic="Openhab_VAR/Kitchen/Boiler_on_set" ,   on="ON" , off="OFF" ,retained=true, postCommand=true]
+	Type 	contact	:	Window				"Window"			[	stateTopic="Openhab_VAR/Kitchen/Window",  on="ON" , off="OFF"]
+
+	Type	switch	:	SetT_Global			"SetT_Global"		[	stateTopic="Openhab_VAR/Kitchen/SetT_Global" , commandTopic="Openhab_VAR/Kitchen/SetT_Global" , on="ON" , off="OFF" ,retained=true, postCommand=true]
+	Type	number	:	Morning_SetT		"Morning_SetT"		[	stateTopic="Openhab_VAR/Kitchen/Morning_SetT"	,	commandTopic="Openhab_VAR/Kitchen/Morning_SetT" ,retained=true]
+	Type	number	:	Day_SetT			"Day_SetT"			[	stateTopic="Openhab_VAR/Kitchen/Day_SetT"	,	commandTopic="Openhab_VAR/Kitchen/Day_SetT" ,retained=true]
+	Type	number	:	Evening_SetT		"Evening_SetT"		[	stateTopic="Openhab_VAR/Kitchen/Evening_SetT"	,	commandTopic="Openhab_VAR/Kitchen/Evening_SetT" ,retained=true]
+	Type	number	:	Night_SetT			"Night_SetT"		[	stateTopic="Openhab_VAR/Kitchen/Night_SetT"	,	commandTopic="Openhab_VAR/Kitchen/Night_SetT" ,retained=true]
+
+	}
+
+
+ Thing mqtt:topic:home  "MQTT_VAR_HOME" (mqtt:broker:mosquito) @ "home"  
+  {  
+  Channels:
+	Type	switch	:	Home_Alarm			"Home_Alarm"		[	stateTopic="Openhab_VAR/Home/Home_Alarm" , commandTopic="Openhab_VAR/Home/Home_Alarm" , on="ON" , off="OFF",retained=true, postCommand=true]
+	Type 	contact	:	Main_Door			"Main_Door"			[	stateTopic="Openhab_VAR/Home/Main_Door",  on="ON" , off="OFF"]
+	Type	number	:	Temperature_srv		"Temperature_srv" 	[	stateTopic="Openhab_VAR/Home/Temperature_srv"]
+	Type	number	:	Humidity_srv		"Humidity_srv" 		[	stateTopic="Openhab_VAR/Home/Humidity_srv"]
+	Type	number	:	T_Kof				"T_Kof"				[	stateTopic="Openhab_VAR/Home/T_Kof"	,	commandTopic="Openhab_VAR/Home/T_Kof", retained=true]
+	Type	number	:	Rejim				"Rejim"				[	stateTopic="Openhab_VAR/Home/Rejim"	,	commandTopic="Openhab_VAR/Home/Rejim", retained=true]
+	Type	string	: 	Time_of_Day			"Time_of_Day"		[	stateTopic="Openhab_VAR/Home/Time_of_Day"]
+
+}	
+	
+ Thing mqtt:topic:energy  "MQTT_VAR_ENERGY" (mqtt:broker:mosquito) @ "home"  
+  {  
+  Channels:
+	
+	Type	number	:	PhaseA_Voltage		"PhaseA_Voltage" 		[	stateTopic="Openhab_VAR/Energy/PhaseA/Voltage"]
+	Type	number	:	PhaseA_Current		"PhaseA_Current" 		[	stateTopic="Openhab_VAR/Energy/PhaseA/Current"]
+	Type	number	:	PhaseA_Power		"PhaseA_Power" 			[	stateTopic="Openhab_VAR/Energy/PhaseA/Power"]
+	Type	number	:	PhaseA_PowerMeter	"PhaseA_PowerMeter"		[	stateTopic="Openhab_VAR/Energy/PhaseA/PowerMeter"]
+	Type	number	:	PhaseA_PowerFactor	"PhaseA_PowerFactor"	[	stateTopic="Openhab_VAR/Energy/PhaseA/PowerFactor"]
+	Type	number	:	PhaseB_Voltage		"PhaseB_Voltage" 		[	stateTopic="Openhab_VAR/Energy/PhaseB/Voltage"]
+	Type	number	:	PhaseB_Current		"PhaseB_Current" 		[	stateTopic="Openhab_VAR/Energy/PhaseB/Current"]
+	Type	number	:	PhaseB_Power		"PhaseB_Power" 			[	stateTopic="Openhab_VAR/Energy/PhaseB/Power"]
+	Type	number	:	PhaseB_PowerMeter	"PhaseB_PowerMeter" 	[	stateTopic="Openhab_VAR/Energy/PhaseB/PowerMeter"]
+	Type	number	:	PhaseB_PowerFactor	"PhaseB_PowerFactor"	[	stateTopic="Openhab_VAR/Energy/PhaseB/PowerFactor"]
+	Type	number	:	PhaseC_Voltage		"PhaseC_Voltage" 		[	stateTopic="Openhab_VAR/Energy/PhaseC/Voltage"]
+	Type	number	:	PhaseC_Current		"PhaseC_Current" 		[	stateTopic="Openhab_VAR/Energy/PhaseC/Current"]
+	Type	number	:	PhaseC_Power		"PhaseC_Power" 			[	stateTopic="Openhab_VAR/Energy/PhaseC/Power"]
+	Type	number	:	PhaseC_PowerMeter	"PhaseC_PowerMeter" 	[	stateTopic="Openhab_VAR/Energy/PhaseC/PowerMeter"]
+	Type	number	:	PhaseC_PowerFactor	"PhaseC_PowerFactor"	[	stateTopic="Openhab_VAR/Energy/PhaseC/PowerFactor"]
+	Type	number	:	PowerMeter			"PowerMeter" 				[	stateTopic="Openhab_VAR/Energy/PowerMeter"]
+	Type	number	:	PowerMeter_night	"PowerMeter_night"	 	[	stateTopic="Openhab_VAR/Energy/PowerMeter_night"]
+	Type	number	:	PowerMeter_day		"PowerMeter_day"		[	stateTopic="Openhab_VAR/Energy/PowerMeter_day"]
+	Type	number	:	PowerMeter_1night	"PowerMeter_1night"	 	[	stateTopic="Openhab_VAR/Energy/PowerMeter_1night"]
+	Type	number	:	PowerMeter_1day		"PowerMeter_1day"		[	stateTopic="Openhab_VAR/Energy/PowerMeter_1day"]
+	Type	number	:	PowerMeter_day_cm		"PowerMeter_day_cm"			[	stateTopic="Openhab_VAR/Energy/PM_CM_day"]
+	Type	number	:	PowerMeter_night_cm		"PowerMeter_night_cm"		[	stateTopic="Openhab_VAR/Energy/PM_CM_night"]	
+	
+  }
+  
+  Thing mqtt:topic:bathroom  "MQTT_VAR_BATHROOM" (mqtt:broker:mosquito) @ "home"  
+  {  
+  Channels:
+	Type	switch	:	AutoHumidity 		"AutoHumidity"		[	stateTopic="Openhab_VAR/Bathroom/AutoHumidity" , commandTopic="Openhab_VAR/Bathroom/AutoHumidity" ,  on="ON" , off="OFF" ,	retained=true, postCommand=true]
+	Type	switch	:	Blower				"Blower"			[	stateTopic="Openhab_VAR/Bathroom/Blower_on" , commandTopic="Openhab_VAR/Bathroom/Blower_on_set" ,  on="ON" , off="OFF" ,	retained=true, postCommand=true]
+	Type	switch	:	Lamp1				"Lamp1"				[	stateTopic="Openhab_VAR/Bathroom/Lamp1_on" , commandTopic="Openhab_VAR/Bathroom/Lamp1_on_set" ,  on="ON" , off="OFF" ,	retained=true, postCommand=true]
+	Type	switch	:	Lamp2				"Lamp2"				[	stateTopic="Openhab_VAR/Bathroom/Lamp2_on" , commandTopic="Openhab_VAR/Bathroom/Lamp2_on_set" ,  on="ON" , off="OFF" ,	retained=true, postCommand=true]
+	Type	number	:	Temperature			"Temperature" 		[	stateTopic="Openhab_VAR/Bathroom/Temperature" ]
+	Type	number	:	Humidity			"Humidity" 			[	stateTopic="Openhab_VAR/Bathroom/Humidity" ]
+	Type	number	:	Set_Humidity		"Set_Humidity"		[	stateTopic="Openhab_VAR/Bathroom/Set_Humidity"	,	commandTopic="Openhab_VAR/Bathroom/Set_Humidity", retained=true]
+	Type	switch	:	Auto_Lamp			"Auto_Lamp"			[	stateTopic="Openhab_VAR/Bathroom/Auto_Lamp" , commandTopic="Openhab_VAR/Bathroom/Auto_Lamp" ,  on="ON" , off="OFF" ,	retained=true, postCommand=true]
+	}
+
+
+  Thing mqtt:topic:xiaomi  "MQTT_VAR_XIAOMI" (mqtt:broker:mosquito) @ "home"  
+  {  
+  Channels:
+	Type	string	:	gateway_command_tx				"gateway_command_tx" 			[stateTopic="Xiaomi/gateway/gateway_command_tx"]
+	Type	string	:	gateway_command_rx 				"gateway_command_rx" 			[commandTopic="Xiaomi/gateway/gateway_command_rx"]
+	Type	switch	: 	radio_status 					"radio_status"					[stateTopic="Xiaomi/gateway/radio/current_status" , commandTopic="Xiaomi/gateway/radio/set_status" ,  on="on" , off="off" ,	retained=true, postCommand=true]
+	Type	number	: 	radio_volume 					"radio_volume"					[stateTopic="Xiaomi/gateway/radio/current_volume" , commandTopic="Xiaomi/gateway/radio/set_volume" ,  retained=true]
+	Type	number	: 	radio_program_id				"radio_program_id"				[stateTopic="Xiaomi/gateway/radio/current_program_id" , commandTopic="Xiaomi/gateway/radio/set_program" ,  retained=true]
+	Type	string	: 	radio_program					"radio_program"					[stateTopic="Xiaomi/gateway/radio/current_program"]
+
+	//****************************************************************************************************************************************
+	Type	number	:	KidsRoom_HT1_battery			"KidsRoom_HT1_battery" 			[	stateTopic="Xiaomi/KidsRoom_HT1/battery" ]
+	Type	number	:	KidsRoom_HT1_linkquality		"KidsRoom_HT1_linkquality"		[	stateTopic="Xiaomi/KidsRoom_HT1/linkquality" ]
+	Type	number	:	KidsRoom_HT1_voltage			"KidsRoom_HT1_voltage" 			[	stateTopic="Xiaomi/KidsRoom_HT1/voltage" ]
+
+	Type	number	:	KidsRoom_HT2_battery			"KidsRoom_HT2_battery" 			[	stateTopic="Xiaomi/KidsRoom_HT2/battery" ]
+	Type	number	:	KidsRoom_HT2_linkquality		"KidsRoom_HT2_linkquality"		[	stateTopic="Xiaomi/KidsRoom_HT2/linkquality" ]
+	Type	number	:	KidsRoom_HT2_voltage			"KidsRoom_HT2_voltage" 			[	stateTopic="Xiaomi/KidsRoom_HT2/voltage" ]
+
+	Type	number	:	KidsRoom_CS1_battery			"KidsRoom_CS1_battery" 			[	stateTopic="Xiaomi/KidsRoom_CS1/battery" ]
+	Type	number	:	KidsRoom_CS1_linkquality		"KidsRoom_CS1_linkquality"		[	stateTopic="Xiaomi/KidsRoom_CS1/linkquality" ]
+	Type	number	:	KidsRoom_CS1_voltage			"KidsRoom_CS1_voltage" 			[	stateTopic="Xiaomi/KidsRoom_CS1/voltage" ]
+	//****************************************************************************************************************************************
+	Type	number	:	KitchenRoom_HTP1_battery		"KitchenRoom_HTP1_battery" 		[	stateTopic="Xiaomi/KitchenRoom_HTP1/battery" ]
+	Type	number	:	KitchenRoom_HTP1_linkquality	"KitchenRoom_HTP1_linkquality"	[	stateTopic="Xiaomi/KitchenRoom_HTP1/linkquality" ]
+	Type	number	:	KitchenRoom_HTP1_voltage		"KitchenRoom_HTP1_voltage" 		[	stateTopic="Xiaomi/KitchenRoom_HTP1/voltage" ]
+
+	Type	number	:	KitchenRoom_CS1_battery			"KitchenRoom_CS1_battery" 		[	stateTopic="Xiaomi/KitchenRoom_CS1/battery" ]
+	Type	number	:	KitchenRoom_CS1_linkquality		"KitchenRoom_CS1_linkquality"	[	stateTopic="Xiaomi/KitchenRoom_CS1/linkquality" ]
+	Type	number	:	KitchenRoom_CS1_voltage			"KitchenRoom_CS1_voltage" 		[	stateTopic="Xiaomi/KitchenRoom_CS1/voltage" ]
+	//****************************************************************************************************************************************
+	Type	number	:	LivingRoom_HT1_battery			"LivingRoom_HT1_battery" 		[	stateTopic="Xiaomi/LivingRoom_HT1/battery" ]
+	Type	number	:	LivingRoom_HT1_linkquality		"LivingRoom_HT1_linkquality"	[	stateTopic="Xiaomi/LivingRoom_HT1/linkquality" ]
+	Type	number	:	LivingRoom_HT1_voltage			"LivingRoom_HT1_voltage" 		[	stateTopic="Xiaomi/LivingRoom_HT1/voltage" ]
+
+	Type	number	:	LivingRoom_CS1_battery			"LivingRoom_CS1_battery" 		[	stateTopic="Xiaomi/LivingRoom_CS1/battery" ]
+	Type	number	:	LivingRoom_CS1_linkquality		"LivingRoom_CS1_linkquality"	[	stateTopic="Xiaomi/LivingRoom_CS1/linkquality" ]
+	Type	number	:	LivingRoom_CS1_voltage			"LivingRoom_CS1_voltage" 		[	stateTopic="Xiaomi/LivingRoom_CS1/voltage" ]
+	//****************************************************************************************************************************************
+	Type	number	:	MainDoor_CS1_battery			"MainDoor_CS1_battery" 			[	stateTopic="Xiaomi/MainDoor_CS1/battery" ]
+	Type	number	:	MainDoor_CS1_linkquality		"MainDoor_CS1_linkquality"		[	stateTopic="Xiaomi/MainDoor_CS1/linkquality" ]
+	Type	number	:	MainDoor_CS1_voltage			"MainDoor_CS1_voltage" 			[	stateTopic="Xiaomi/MainDoor_CS1/voltage" ]
+
+	Type	number	:	MainDoor_Switch_battery			"MainDoor_Switch_battery" 		[	stateTopic="Xiaomi/MainDoor_Switch/battery" ]
+	Type	number	:	MainDoor_Switch_linkquality		"MainDoor_Switch_linkquality"	[	stateTopic="Xiaomi/MainDoor_Switch/linkquality" ]
+	Type	number	:	MainDoor_Switch_voltage			"MainDoor_Switch_voltage" 		[	stateTopic="Xiaomi/MainDoor_Switch/voltage" ]
+
+	Type	number	:	Srv_HT_battery					"Srv_HT_battery" 				[	stateTopic="Xiaomi/Srv_HT/battery" ]
+	Type	number	:	Srv_HT_linkquality				"Srv_HT_linkquality"			[	stateTopic="Xiaomi/Srv_HT/linkquality" ]
+	Type	number	:	Srv_HT_voltage					"Srv_HT_voltage" 				[	stateTopic="Xiaomi/Srv_HT/voltage" ]
+	//****************************************************************************************************************************************
+	Type	number	:	Bathroom_HT1_battery			"Bathroom_HT1_battery" 			[	stateTopic="Xiaomi/Bathroom_HT1/battery" ]
+	Type	number	:	Bathroom_HT1_linkquality		"Bathroom_HT1_linkquality"		[	stateTopic="Xiaomi/Bathroom_HT1/linkquality" ]
+	Type	number	:	Bathroom_HT1_voltage			"Bathroom_HT1_voltage" 			[	stateTopic="Xiaomi/Bathroom_HT1/voltage" ]
+
+	Type	number	:	Bathroom_Switch_battery			"Bathroom_Switch_battery" 		[	stateTopic="Xiaomi/Bathroom_Switch/battery" ]
+	Type	number	:	Bathroom_Switch_linkquality		"Bathroom_Switch_linkquality"	[	stateTopic="Xiaomi/Bathroom_Switch/linkquality" ]
+	Type	number	:	Bathroom_Switch_voltage			"Bathroom_Switch_voltage" 		[	stateTopic="Xiaomi/Bathroom_Switch/voltage" ]
+
+	Type	number	:	Bathroom_MS_battery				"Bathroom_MS_battery" 			[	stateTopic="Xiaomi/Bathroom_MS/battery" ]
+	Type	number	:	Bathroom_MS_linkquality			"Bathroom_MS_linkquality"		[	stateTopic="Xiaomi/Bathroom_MS/linkquality" ]
+	Type	number	:	Bathroom_MS_voltage				"Bathroom_MS_voltage" 			[	stateTopic="Xiaomi/Bathroom_MS/voltage" ]
+	//****************************************************************************************************************************************
+
+
+
+
+
+
+}

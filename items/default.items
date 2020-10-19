@@ -1,0 +1,94 @@
+Group                       Home                      "Группа Дом"                             <house>
+Group                       Settings                  "Группа Настройки"                       <settings>        (Home)
+Group                       Xiaomi                    "Группа Xiaomi"                          <Xiaomi>          (Home)
+Group:Switch:OR(ON, OFF)    gHeater                   "Группа Обогреватель"                    <radiator>        (Home)
+Group:Number:AVG            gTemperature              "Группа Температура"                     <temperature>     (Home)
+Group:Number:AVG            gHumidity                 "Группа Влажность"                       <humidity>        (Home)
+Group:Number:AVG            gEnergy1                  "Группа энергия"                         <Energy1>         (Home)
+Group:Number:AVG            gEnergy2                  "Группа энергия"                         <Energy1>         (Home)
+/////////********************************************************************////////		
+Switch                      Home_Alarm                "Режим присутствия в доме []"            <lock>            (Home)                   {channel="mqtt:topic:home:Home_Alarm"}
+
+Contact                     Main_Door                 "Главная дверь [MAP(window.map):%s]"     <door>            (Home)                   {channel="mqtt:topic:home:Main_Door"}
+
+Number                      Temperature_srv           "Сервер температура[%.1f °C]"            <temperature>     (Home, gTemperature2)    {channel="mqtt:topic:home:Temperature_srv"}
+
+Number                      Humidity_srv              "Сервер влажность[%.0f %%]"              <humidity>        (Home, gHumidity2)       {channel="mqtt:topic:home:Humidity_srv"}
+
+Number                      T_Kof                     "Коэфициент температура[%.0f °C]"        <temperature>     (Home)                   {channel="mqtt:topic:home:T_Kof"}
+
+Number                      Rejim                     "Режим присутствия в доме[]"             <flowpipe>        (Home)                   {channel="mqtt:topic:home:Rejim"}
+
+Switch                      notification_app          "Мобильные оповещения"                   <notification>    (home)
+
+Switch                      mainrelay1_online         "нет связи с главным реле []"            <error>           (home)                   {channel="network:pingdevice:mainrelay1_online:online"}
+
+/////////********************************************************************////////	
+DateTime                    Date                      "Дата [%1$td.%1$tm.%1$tY , %1$tA]"       <calendar>        (home)                   {channel="ntp:ntp:local:dateTime"}
+DateTime                    Time                      "Время [%1$tH:%1$tM]"                    <time>            (home)                   {channel="ntp:ntp:local:dateTime"}
+String                      Time_of_Day               "Время дня [%s]"                         <time>            (home)                   {channel="mqtt:topic:home:Time_of_Day"}
+
+/////////********************************************************************////////	
+Number                      Outdoor_Temperature       "Температура воздуха [%.0f °C]"          <temperature>                              {channel="openweathermap:weather-and-forecast:5507bb6e:local:current#temperature"}
+Number                      Barometric_Pressure       "Атмосферное давление [%.0f Па]"         <Pressure>                                 {channel="openweathermap:weather-and-forecast:5507bb6e:local:current#pressure"}
+Number                      Atmospheric_Humidity      "Влажность [%.0f %%]"                    <humidity>                                 {channel="openweathermap:weather-and-forecast:5507bb6e:local:current#humidity"}
+Number                      Wind_Speed                "Скорость ветра [%.0f mc]"               <Speed>                                    {channel="openweathermap:weather-and-forecast:5507bb6e:local:current#wind-speed"}
+
+/////////********************************************************************////////
+Switch                      SamsungTV_online                                                                                              {channel="network:pingdevice:SamsungTV_online:online"}
+
+String                      SamsungTV_Key_Code        "Fonction envoi Key Code[]"                                                         {channel="samsungtv:tv:0d1cef00_00dc_1000_b3c2_5056bf01e988:keyCode"}
+
+Switch                      SamsungTV_Power           "Power[]"                                                                           {channel="samsungtv:tv:0d1cef00_00dc_1000_b3c2_5056bf01e988:power"}
+
+/////////********************************************************************////////
+Switch                      PS4_online                                                                                                    {channel="network:pingdevice:PS4_online:online"}
+
+Switch                      PS4_Power                 "Power"                                                                             {channel="playstation:PS4:F8461CB27EAA:power"}
+
+String                      PS4_Application           "Application [%s]"                                                                  {channel="playstation:PS4:F8461CB27EAA:applicationName"}
+
+String                      PS4_ApplicationId         "Application id [%s]"                                                               {channel="playstation:PS4:F8461CB27EAA:applicationId"}
+
+Image                       PS4_ArtWork               "Artwork"                                                                           {channel="playstation:PS4:F8461CB27EAA:applicationImage"}
+
+String                      PS4_OSKText               "OSK Text"                                                                          {channel="playstation:PS4:F8461CB27EAA:oskText"}
+
+String                      PS4_SendKey               "SendKey []"                                                                        {channel="playstation:PS4:F8461CB27EAA:sendKey"}
+
+String                      PS4_2ndScr                "2ndScreen"                                                                         {channel="playstation:PS4:F8461CB27EAA:secondScreen"}
+
+Switch                      PS4_Connect               "Connect"                                                                           {channel="playstation:PS4:F8461CB27EAA:connect"}
+
+/////////********************************************************************////////
+Switch                      nas_online                                                                                                    {channel="network:pingdevice:nas_online:online"}
+
+Number                      raidFreeSize              "raidFreeSize Mb  [JS(bytes.js):%d]"                                                {channel="snmp:target:nas:raidFreeSize"}
+
+Number                      raidTotalSize             "raidTotalSize Mb  [JS(bytes.js):%d]"                                               {channel="snmp:target:nas:raidTotalSize"}
+
+/////////********************************************************************////////
+Switch                      ohbackup                                                                                                      {channel="exec:command:ohbackup:run", autoupdate="false"}
+
+String                      ohbackupLastExecution                                                                                         {channel="exec:command:ohbackup:output"}
+
+
+/////////********************************************************************////////
+Switch                      HNG_online                                                                                                    {channel="network:pingdevice:HNG_online:online"}
+Dimmer                      HNG_yperion_Brightness    "Brightness [%s]"                                                                   {channel="hyperion:serverNG:07ca238e:brightness"}
+Color                       HNG_MyColor               "Color"                                                                             {channel="hyperion:serverNG:07ca238e:color"}
+String                      HNG_Effect                "Current effect [%s]"                                                               {channel="hyperion:serverNG:07ca238e:effect"}
+String                      HNG_Clear                 "Clear priority"                                                                    {channel="hyperion:serverNG:07ca238e:clear"}
+Switch                      HNG_HyperionEnabled       "Hyperion Enabled"                                                                  {channel="hyperion:serverNG:07ca238e:hyperionenabled"}
+Switch                      HNG_BlackBorderEnabled    "Black Border"                                                                      {channel="hyperion:serverNG:07ca238e:blackborder"}
+Switch                      HNG_SmoothingEnabled      "Smooting"                                                                          {channel="hyperion:serverNG:07ca238e:smoothing"}
+Switch                      HNG_KodiCheckerEnabled    "Kodi Checker"                                                                      {channel="hyperion:serverNG:07ca238e:kodichecker"}
+Switch                      HNG_ForwarderEnabled      "Forwarder"                                                                         {channel="hyperion:serverNG:07ca238e:forwarder"}
+Switch                      HNG_UdpListenerEnabled    "UDP Listener"                                                                      {channel="hyperion:serverNG:07ca238e:udplistener"}
+Switch                      HNG_BoblightEnabled       "Boblight"                                                                          {channel="hyperion:serverNG:07ca238e:boblightserver"}
+Switch                      HNG_GrabberEnabled        "Grabber"                                                                           {channel="hyperion:serverNG:07ca238e:grabber"}
+Switch                      HNG_V4lEnabled            "V4L"                                                                               {channel="hyperion:serverNG:07ca238e:v4l"}
+Switch                      HNG_LedDeviceEnabled      "LED Device"                                                                        {channel="hyperion:serverNG:07ca238e:leddevice"}
+
+/////////********************************************************************////////
+String                      VoiceCommand

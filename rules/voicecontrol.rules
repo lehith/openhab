@@ -1,0 +1,18 @@
+rule "Voice Control"
+when
+    Item VoiceCommand received update
+then
+    val command = VoiceCommand.state.toString.toLowerCase
+    logInfo("Events","VoiceCommand received :"+command)
+
+
+    if (command.contains("свет"))
+    {
+        if(command.contains("включи")) 
+        { Bathroom_Lamp1.sendCommand(ON)
+          Bathroom_Lamp2.sendCommand(ON)}
+        else if(command.contains("выключи")) 
+        { Bathroom_Lamp1.sendCommand(OFF)
+          Bathroom_Lamp2.sendCommand(OFF)}
+    }
+end

@@ -1,0 +1,21 @@
+<html>
+ <body>
+ <script type="text/javascript">
+     function addStyle(s) 
+     {
+      var ele = window.parent.document.createElement('style');
+      ele.innerHTML = s;
+      window.parent.document.head.appendChild(ele);
+     }
+     addStyle('main {border-top:2px solid #005050 !important;}');
+     addStyle('input{background:#00BFFF !important;}');
+     //общий фон 
+	 addStyle('div{background:#D3D3D3 !important;color:#00c0c0 !important;}');
+     addStyle('button {background:#306070 !important; border:1px solid #005050 !important;}');
+     addStyle('.mdl-form__row {border-bottom:1px solid #004040 !important;}');
+	 //цвет фона фрейма
+     addStyle('.mdl-color--white{background:#BC8F8F !important;}');
+     addStyle('.mdl-form__value--slider{background:#303030 !important;}');
+     </script>
+     </body>
+    </html>

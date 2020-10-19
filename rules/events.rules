@@ -1,0 +1,103 @@
+rule "Kitchen_Heater_events"
+when
+	Item Kitchen_Heater  changed
+then
+
+	logInfo("Events", "Kitchen_Temperature :" + Kitchen_Temperature.state)
+	logInfo("Events", "Kitchen_Heater "+Kitchen_Heater.state)
+//	sendNotification("lehith@gmail.com","Kitchen_Heater "+Kitchen_Heater.state)
+//	sendNotification("lehith@gmail.com","Kitchen_Temperature "+Kitchen_Temperature.state)
+
+end	
+
+rule "Kitchen_Boiler_events"
+when
+	Item Kitchen_Boiler  changed
+then
+//	sendNotification("lehith@gmail.com","Kitchen_Boiler "+Kitchen_Boiler.state)
+logInfo("Events", "Kitchen_Boiler "+Kitchen_Boiler.state)
+end	
+
+rule "KidsRoom_Heater_events"
+when
+	Item KidsRoom_Heater  changed
+then
+logInfo("Events", "KidsRoom_Temperature :" +KidsRoom_Temperature.state)
+logInfo("Events", "KidsRoom_Heater "+KidsRoom_Heater.state)
+//	sendNotification("lehith@gmail.com","KidsRoom_Heater "+KidsRoom_Heater.state)
+//	sendNotification("lehith@gmail.com","KidsRoom_Temperature "+KidsRoom_Temperature.state)
+end	
+
+rule "LivingRoom_Heater1_events"
+when
+	Item LivingRoom_Heater1  changed
+then
+	logInfo("Events", "LivingRoom_Temperature :" + LivingRoom_Temperature.state)
+	logInfo("Events", "LivingRoom_Heater1 "+LivingRoom_Heater1.state)
+//	sendNotification("lehith@gmail.com","LivingRoom_Temperature "+LivingRoom_Temperature.state)
+//	sendNotification("lehith@gmail.com","LivingRoom_Heater1 "+LivingRoom_Heater1.state)
+end	
+
+rule "LivingRoom_Heater2_events"
+when
+	Item LivingRoom_Heater2  changed
+then
+//	sendNotification("lehith@gmail.com","LivingRoom_Temperature "+LivingRoom_Temperature.state)
+//	sendNotification("lehith@gmail.com","LivingRoom_Heater2 "+LivingRoom_Heater2.state)
+	logInfo("Events", "LivingRoom_Temperature :" + LivingRoom_Temperature.state)
+	logInfo("Events", "LivingRoom_Heater2 "+LivingRoom_Heater2.state)
+end	
+
+rule "notification_app_events"
+when
+	Item notification_app  changed
+then
+	logInfo("Events", "notification_app :" + notification_app.state)
+end	
+
+
+rule "Kitchen_window_events"
+when
+	Item Kitchen_window  changed
+then
+if(notification_app.state == ON) 
+	sendNotification("lehith@gmail.com","Kitchen_window :"+Kitchen_window.state)
+
+	logInfo("Events", "Kitchen_window :" + Kitchen_window.state)
+end	
+
+rule "Main_Door_events"
+when
+	Item Main_Door  changed
+then
+if(notification_app.state == ON) 
+sendNotification("lehith@gmail.com","Main_Door :"+Main_Door.state)
+
+	logInfo("Events", "Main_Door :" + Main_Door.state)
+end	
+
+rule "LivingRoom_Window1_events"
+when
+	Item LivingRoom_Window1  changed
+then
+if(notification_app.state == ON) 
+ sendNotification("lehith@gmail.com","LivingRoom_Window1 :"+LivingRoom_Window1.state)
+
+	logInfo("Events", "LivingRoom_Window1 :" + LivingRoom_Window1.state)
+end	
+
+rule "KidsRoom_Window_events"
+when
+	Item KidsRoom_Window  changed
+then
+
+	if(notification_app.state == ON) 
+	sendNotification("lehith@gmail.com","KidsRoom_Window :"+KidsRoom_Window.state)
+
+	logInfo("Events", "KidsRoom_Window1 :" + KidsRoom_Window.state)
+end	
+
+
+
+
+

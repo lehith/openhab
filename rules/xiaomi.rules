@@ -1,0 +1,109 @@
+rule "log comand"
+    when Item gateway_send_command changed
+    then
+        logInfo("Events", "gateway_send_command "+gateway_send_command.state)
+    end
+
+rule "gateway_command_rx"
+    when Item gateway_send_command received update
+    then
+    gateway_command_rx.sendCommand(gateway_send_command.state)
+    end
+
+rule "gateway_command_tx"
+    when Item gateway_command_tx received update  
+    then
+    gateway_send_command.sendCommand(gateway_command_tx.state)
+    end
+
+rule "log comand"
+    when Item gateway_send_command changed
+    then
+        logInfo("Events", "gateway_send_command: "+gateway_send_command.state)
+    end
+
+rule "log gateway_Brightness"
+    when Item gateway_Brightness changed 
+    then
+        logInfo("Events","gateway_Brightness: "+gateway_Brightness.state)
+    end
+rule "log gateway_Illumination"
+    when Item gateway_Illumination changed 
+    then
+        logInfo("Events","gateway_Illumination: "+gateway_Illumination.state)
+    end
+rule "log gateway_Color"
+    when Item gateway_Color changed 
+    then
+        logInfo("Events","gateway_Color: "+gateway_Color.state)
+    end
+rule "log gateway_ColorTemperature"
+    when Item gateway_ColorTemperature changed 
+    then
+        logInfo("Events","gateway_ColorTemperature: "+gateway_ColorTemperature.state)
+    end
+
+
+
+
+// rule "Radio ON"
+//     when Item gateway_radio_on changed to ON
+//     then
+//         gateway_send_command.sendCommand("play_fm[\"on\"]")
+//     end
+
+
+// rule "Radio OFF"
+//     when Item gateway_radio_on changed to OFF
+//     then
+//         gateway_send_command.sendCommand("play_fm[\"off\"]")
+//     end
+
+// rule "Volume"
+//  when Item gateway_radio_volume changed
+//  then
+//     var state = gateway_radio_volume.state.toString
+//      gateway_send_command.sendCommand("volume_ctrl_fm[\""+state+"\"]")
+// end
+
+
+
+
+
+// rule "gateway_radio_change"
+//     when Item gateway_radio_change changed
+//     then
+//         if (gateway_radio_change.state == 1)
+//             gateway_send_command.sendCommand("play_specify_fm[527782008,1]")
+//         if (gateway_radio_change.state == 2) 
+//             gateway_send_command.sendCommand("play_specify_fm[527782024,1]")
+//         if (gateway_radio_change.state == 3) 
+//             gateway_send_command.sendCommand("play_specify_fm[527782030,1]")
+//         if (gateway_radio_change.state == 4)  
+//             gateway_send_command.sendCommand("play_specify_fm[527782436,1]")
+//         if  (gateway_radio_change.state == 5) 
+//             gateway_send_command.sendCommand("play_specify_fm[527782561,1]")
+//         if  (gateway_radio_change.state == 6) 
+//             gateway_send_command.sendCommand("play_specify_fm[527782050,1]")
+//         if  (gateway_radio_change.state == 7) 
+//             gateway_send_command.sendCommand("play_specify_fm[527782223,1]")
+//         if  (gateway_radio_change.state == 8) 
+//             gateway_send_command.sendCommand("play_specify_fm[527782517,1]")
+//         if  (gateway_radio_change.state == 9) 
+//             gateway_send_command.sendCommand("play_specify_fm[527782553,1]")
+//         if  (gateway_radio_change.state == 10) 
+//             gateway_send_command.sendCommand("play_specify_fm[527782684,1]")
+//         if  (gateway_radio_change.state == 11) 
+//             gateway_send_command.sendCommand("play_specify_fm[527782692,1]")
+//         if  (gateway_radio_change.state == 12) 
+//             gateway_send_command.sendCommand("play_specify_fm[527782731,1]")
+//         if  (gateway_radio_change.state == 13) 
+//             gateway_send_command.sendCommand("play_specify_fm[527782770,1]")
+//         if  (gateway_radio_change.state == 14) 
+//             gateway_send_command.sendCommand("play_specify_fm[527782775,1]")
+//         if  (gateway_radio_change.state == 15) 
+//             gateway_send_command.sendCommand("play_specify_fm[527782799,1]")
+//         if  (gateway_radio_change.state == 16) 
+//             gateway_send_command.sendCommand("play_specify_fm[527782833,1]")
+//     end
+

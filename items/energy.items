@@ -1,0 +1,53 @@
+/////////********************************************************************////////
+
+Switch    ESP005F543D_online     "нет связи с датчиками энергии []"     <error>                            {channel="network:pingdevice:ESP005F543D_online:online"}
+
+/////////********************************************************************////////
+Number    PhaseA_Voltage         "Фаза А напряжение [%.0f V]"           <energy>    (PhaseA, gEnergy)      {channel="mqtt:topic:energy:PhaseA_Voltage"}
+
+Number    PhaseA_Current         "Фаза А ток [%.1f A]"                  <energy>    (PhaseA, gEnergy)      {channel="mqtt:topic:energy:PhaseA_Current"}
+
+Number    PhaseA_Power           "Фаза А мощьность [%.0fW]"             <energy>    (PhaseA, gEnergy)      {channel="mqtt:topic:energy:PhaseA_Power"}
+
+Number    PhaseA_PowerMeter      "Фаза А потребление [%.0f kWh]"        <energy>    (PhaseA, gEnergy)      {channel="mqtt:topic:energy:PhaseA_PowerMeter"}
+
+Number    PhaseA_PowerFactor     "Фаза А фактор мощьности"              <energy>    (PhaseA, gEnergy)      {channel="mqtt:topic:energy:PhaseA_PowerFactor"}
+
+/////////********************************************************************////////
+Number    PhaseB_Voltage         "Фаза B напряжение [%.0f V]"           <energy>    (PhaseA, gEnergy)      {channel="mqtt:topic:energy:PhaseB_Voltage"}
+
+Number    PhaseB_Current         "Фаза B ток [%.1f A]"                  <energy>    (PhaseB, gEnergy)      {channel="mqtt:topic:energy:PhaseB_Current"}
+
+Number    PhaseB_Power           "Фаза B мощьность [%.0fW]"             <energy>    (PhaseB, gEnergy)      {channel="mqtt:topic:energy:PhaseB_Power"}
+
+Number    PhaseB_PowerMeter      "Фаза B потребление [%.0f kWh]"        <energy>    (PhaseB, gEnergy)      {channel="mqtt:topic:energy:PhaseB_PowerMeter"}
+
+Number    PhaseB_PowerFacto      "Фаза B фактор мощьности"              <energy>    (PhaseB, gEnergy)      {channel="mqtt:topic:energy:PhaseB_PowerFactor"}
+
+/////////********************************************************************////////
+Number    PhaseC_Voltage         "Фаза C напряжение [%.0f V]"           <energy>    (PhaseC, gEnergy)      {channel="mqtt:topic:energy:PhaseC_Voltage"}
+
+Number    PhaseC_Current         "Фаза C ток [%.1f A]"                  <energy>    (PhaseC, gEnergy)      {channel="mqtt:topic:energy:PhaseC_Current"}
+
+Number    PhaseC_Power           "Фаза C мощьность [%.0fW]"             <energy>    (PhaseC, gEnergy)      {channel="mqtt:topic:energy:PhaseC_Power"}
+
+Number    PhaseC_PowerMeter      "Фаза C потребление [%.0f kWh]"        <energy>    (PhaseC, gEnergy)      {channel="mqtt:topic:energy:PhaseC_PowerMeter"}
+
+Number    PhaseC_PowerFactor     "Фаза C фактор мощьности"              <energy>    (PhaseC, gEnergy)      {channel="mqtt:topic:energy:PhaseC_PowerFactor"}
+
+/////////********************************************************************////////
+Number    PowerMeter             "потребление [%.0f kWh]"               <energy>    (gEnergy)              {channel="mqtt:topic:energy:PowerMeter"}
+
+Number    PowerMeter_night       "потребление ночь [%.0f kWh]"          <energy>    (gEnergy)              {channel="mqtt:topic:energy:PowerMeter_night"}
+
+Number    PowerMeter_day         "потребление день [%.0f kWh]"          <energy>    (gEnergy)              {channel="mqtt:topic:energy:PowerMeter_day"}
+
+Number    PowerMeter_1night      "потребление 1 ночь [%.0f kWh]"        <energy>    (gEnergy, gEnergy1)    {channel="mqtt:topic:energy:PowerMeter_1night"}
+
+Number    PowerMeter_1day        "потребление 1 день [%.0f kWh]"        <energy>    (gEnergy, gEnergy1)    {channel="mqtt:topic:energy:PowerMeter_1day"}
+
+Number    PowerMeter_day_cm      "потребление день месяц [%.0f kWh]"    <energy>    (gEnergy, gEnergy2)    {channel="mqtt:topic:energy:PowerMeter_day_cm"}
+
+Number    PowerMeter_night_cm    "потребление ночь месяц [%.0f kWh]"    <energy>    (gEnergy, gEnergy2)    {channel="mqtt:topic:energy:PowerMeter_night_cm"}
+
+

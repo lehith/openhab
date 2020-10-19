@@ -1,0 +1,76 @@
+// persistence strategies have a name and a definition and are referred to in the «Items» section
+// если для элемента ниже не указана стратегия, будет использоваться список по умолчанию
+Strategies {
+       everyMinute    : "0 * * * * ?"
+       every5Minutes : "0 */5 * * * ?"
+       everyHour   : "0 0 * * * ?"
+       everyDay    : "0 0 0 * * ?"
+       default = everyChange
+}
+
+/* 
+* Каждая строка в этом разделе определяется, для которых товар(ов), в которых стратегии(иэс) следует применять.
+* You can list single items, use "*" for all items or «groupitem*» for all members of a group
+* item (excl. the group item itself).
+*/
+
+
+// сохраняют все элементы один раз в день и при каждом изменении восстанавливают их из базы данных при запуске
+//*: strategy = everyChange, everyDay, restoreOnStartup
+// кроме того, сохраняются все значения температуры и погоды каждый час
+Items
+{
+Kitchen_Humidity:			strategy =  everyChange, restoreOnStartup
+Kitchen_Temperature:		       strategy =  everyChange, restoreOnStartup
+Kitchen_Pressure:			strategy =  everyChange, restoreOnStartup
+Kitchen_set_Temperature:	       strategy =  everyChange, restoreOnStartup
+Kitchen_auto_Temperature:	       strategy =  everyChange, restoreOnStartup
+Kitchen_auto_Heater:		       strategy =  everyChange, restoreOnStartup
+Kitchen_night_Boiler:		strategy =  everyChange, restoreOnStartup
+Kitchen_Heater: 			strategy =  everyChange, restoreOnStartup
+Kitchen_Boiler: 			strategy =  everyChange, restoreOnStartup
+
+
+
+/////////***********************************************************************************************************////////
+KidsRoom_Temperature:		strategy =  everyChange, restoreOnStartup
+KidsRoom_Humidity:			strategy =  everyChange, restoreOnStartup
+KidsRoom_set_Temperature:	       strategy =  everyChange, restoreOnStartup
+KidsRoom_auto_Temperature:  	strategy =  everyChange, restoreOnStartup
+KidsRoom_auto_Heater:		strategy =  everyChange, restoreOnStartup
+KidsRoom_Heater: 			strategy =  everyChange, restoreOnStartup
+
+/////////***********************************************************************************************************////////	
+LivingRoom_Temperature:		strategy =  everyChange, restoreOnStartup
+LivingRoom_Humidity:		       strategy =  everyChange, restoreOnStartup
+LivingRoom_auto_Temperature:       strategy =  everyChange, restoreOnStartup
+LivingRoom_set_Temperature:        strategy =  everyChange, restoreOnStartup
+LivingRoom_auto_Heater:     	strategy =  everyChange, restoreOnStartup
+LivingRoom_Heater1: 		       strategy =  everyChange, restoreOnStartup
+LivingRoom_Heater2: 		       strategy =  everyChange, restoreOnStartup
+
+/////////***********************************************************************************************************////////	
+Temperature_srv: 			strategy =  everyChange, restoreOnStartup
+Humidity_srv: 			strategy =  everyChange, restoreOnStartup
+
+Bathroom_Temperature: 		strategy =  everyChange, restoreOnStartup
+Bathroom_Humidity: 			strategy =  everyChange, restoreOnStartup
+Bathroom_set_Humidity: 		strategy =  everyChange, restoreOnStartup
+
+PowerMeter: 				strategy =  everyChange, restoreOnStartup
+PowerMeter_night: 			strategy =  everyChange, restoreOnStartup
+PowerMeter_day: 			strategy =  everyChange, restoreOnStartup
+PowerMeter_1night: 	       	strategy =  everyChange, restoreOnStartup
+PowerMeter_1day: 			strategy =  everyChange, restoreOnStartup
+PowerMeter_day_cm: 			strategy =  everyChange, restoreOnStartup
+PowerMeter_night_cm: 		strategy =  everyChange, restoreOnStartup
+
+gateway_radio_on : 		       strategy =  everyChange, restoreOnStartup
+gateway_radio_change : 		strategy =  everyChange, restoreOnStartup
+gateway_radio_volume : 		strategy =  everyChange, restoreOnStartup
+notification_app : 		       strategy =  everyChange, restoreOnStartup	  
+Home_Alarm :                	strategy =  everyChange, restoreOnStartup	  
+T_Kof :                            strategy =  everyChange, restoreOnStartup
+Rejim :                            strategy =  everyChange, restoreOnStartup
+LivingRoom_Chart_Period :          strategy =  everyChange, restoreOnStartup
+}	

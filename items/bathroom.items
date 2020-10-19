@@ -1,0 +1,45 @@
+Group     Bathroom                       "Группа Ванная"                         <bath>                (Home)
+Group     BathroomGrafT                  "Группа графики Ванная"                 <line>                (BathroomGrafT)
+Group     BathroomGrafH                  "Группа графики Ванная"                 <line>                (BathroomGrafH)
+
+/////////********************************************************************////////
+Switch    bathroom1_online               "нет связи с реле1 в ванной []"         <error>               (Bathroom)                                {channel="network:pingdevice:bathroom1_online:online"}
+
+Switch    bathroom2_online               "нет связи с реле2 в ванной []"         <error>               (Bathroom)                                {channel="network:pingdevice:bathroom2_online:online"}
+
+Switch    Bathroom_Blower                "Ванная вытяжка []"                     <fan>                 (Bathroom)                                {channel="mqtt:topic:bathroom:Blower"}
+
+Switch    Bathroom_Lamp1                 "Ванная лампа 1 []"                     <light>               (Bathroom)                                {channel="mqtt:topic:bathroom:Lamp1"}
+
+Switch    Bathroom_Lamp2                 "Ванная лампа 2 []"                     <light>               (Bathroom)                                {channel="mqtt:topic:bathroom:Lamp2"}
+
+Switch    Bathroom_AutoHumidity          "Ванная Поддержание влажность []"       <humidity>            (Bathroom)                                {channel="mqtt:topic:bathroom:AutoHumidity"}
+
+Switch    Bathroom_Auto_Lamp             "Ванная авто свет []"                   <light>               (Bathroom)                                {channel="mqtt:topic:bathroom:Auto_Lamp"}
+
+Number    Bathroom_Temperature           "Ванная температура [%.1f °C]"          <temperature>         (Bathroom, gTemperature,BathroomGrafT)    {channel="mqtt:topic:bathroom:Temperature"}
+
+Number    Bathroom_Humidity              "Ванная влажность [%.0f %%]"            <humidity>            (Bathroom, gHumidity,BathroomGrafH)       {channel="mqtt:topic:bathroom:Humidity"}
+
+Number    Bathroom_set_Humidity          "Ванная уставка влажность [%.0f %%]"    <humidity>            (Bathroom,BathroomGrafH)                  {channel="mqtt:topic:bathroom:Set_Humidity"}
+
+
+/////////********************************************************************////////
+Number    Bathroom_HT1_battery           "Bathroom_HT1_battery"                  <battery>             (Bathroom)                                {channel="mqtt:topic:xiaomi:Bathroom_HT1_battery"}
+
+Number    Bathroom_HT1_linkquality       "Bathroom_HT1_linkquality"              <qualityofservice>    (Bathroom)                                {channel="mqtt:topic:xiaomi:Bathroom_HT1_linkquality"}
+
+Number    Bathroom_HT1_voltage           "Bathroom_HT1_voltage"                  <energy>              (Bathroom)                                {channel="mqtt:topic:xiaomi:Bathroom_HT1_voltage"}
+
+
+Number    Bathroom_Switch_battery        "Bathroom_Switch_battery"               <battery>             (Bathroom)                                {channel="mqtt:topic:xiaomi:Bathroom_Switch_battery"}
+
+Number    Bathroom_Switch_linkquality    "Bathroom_Switch_linkquality"           <qualityofservice>    (Bathroom)                                {channel="mqtt:topic:xiaomi:Bathroom_Switch_linkquality"}
+
+Number    Bathroom_Switch_voltage        "Bathroom_Switch_voltage"               <energy>              (Bathroom)                                {channel="mqtt:topic:xiaomi:Bathroom_Switch_voltage"}
+
+Number    Bathroom_MS_battery            "Bathroom_MS_battery"                   <battery>             (Bathroom)                                {channel="mqtt:topic:xiaomi:Bathroom_MS_battery"}
+
+Number    Bathroom_MS_linkquality        "Bathroom_MS_linkquality"               <qualityofservice>    (Bathroom)                                {channel="mqtt:topic:xiaomi:Bathroom_MS_linkquality"}
+
+Number    Bathroom_MS_voltage            "Bathroom_MS_voltage"                   <energy>              (Bathroom)                                {channel="mqtt:topic:xiaomi:Bathroom_MS_voltage"}

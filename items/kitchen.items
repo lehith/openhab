@@ -1,0 +1,52 @@
+Group      Kitchen                         "Группа Кухня"                             <kitchen>             (Home)
+Group      KitchenGrafT                    "Группа графики Кухня"                     <KitchenGrafT>        (Home)
+Group      KitchenGrafH                    "Группа графики Кухня"                     <KitchenGrafH>        (Home)
+
+/////////********************************************************************////////
+Switch     Kitchen_Heater                  "Кухня обогреватель []"                    <radiator>            (Kitchen, gHeater)                      {channel="mqtt:topic:kitchen:Heater"}
+
+Switch     Kitchen_Boiler                  "Кухня бойлер []"                          <poweroutlet>         (Kitchen)                               {channel="mqtt:topic:kitchen:Boiler"}
+
+Switch     Kitchen_auto_Heater             "Кухня Поддержание температуры []"         <heating>             (Kitchen, gHeater)                      {channel="mqtt:topic:kitchen:AutoHeater"}
+
+Switch     Kitchen_night_Boiler            "Кухня включать бойлет с 23 до 6 []"       <switch>              (Kitchen)                               {channel="mqtt:topic:kitchen:Night_Boiler"}
+
+Number     Kitchen_Temperature             "Кухня температура[%.1f °C]"               <temperature>         (Kitchen, gTemperature,KitchenGrafT)    {channel="mqtt:topic:kitchen:Temperature"}
+
+Number     Kitchen_Humidity                "Кухня влажность[%.0f %%]"                 <humidity>            (Kitchen, gHumidity,KitchenGrafH)       {channel="mqtt:topic:kitchen:Humidity"}
+
+Number     Kitchen_Pressure                "Кухня атмосферное давление[%.0f mmHg]"    <water-percent>       (Kitchen)                               {channel="mqtt:topic:kitchen:Pressure"}
+
+Number     Kitchen_set_Temperature         "Кухня уставка температура [%.0f °C]"      <heating>             (Kitchen)                               {channel="mqtt:topic:kitchen:Set_Temperature"}
+
+Number     Kitchen_auto_Temperature        "Кухня авто температура [%.0f °C]"         <heating>             (Kitchen,KitchenGrafT)                  {channel="mqtt:topic:kitchen:Auto_Temperature"}
+
+Contact    Kitchen_window                  "Кухня окно [MAP(window.map):%s]"          <window>              (Kitchen)                               {channel="mqtt:topic:kitchen:Window"}
+
+Switch     Kitchen_SetT_Global             "Кухня глобальные параметры []"            <heating>             (Kitchen, gHeater)                      {channel="mqtt:topic:kitchen:SetT_Global"}
+
+Number     Kitchen_Morning_SetT            "Кухня уставка Т утро [%.0f °C]"           <heating>             (Kitchen)                               {channel="mqtt:topic:kitchen:Morning_SetT"}
+
+Number     Kitchen_Day_SetT                "Кухня уставка Т день [%.0f °C]"           <heating>             (Kitchen)                               {channel="mqtt:topic:kitchen:Day_SetT"}
+
+Number     Kitchen_Evening_SetT            "Кухня уставка Т вечер [%.0f °C]"          <heating>             (Kitchen)                               {channel="mqtt:topic:kitchen:Evening_SetT"}
+
+Number     Kitchen_Night_SetT              "Кухня уставка Т ночь [%.0f °C]"           <heating>             (Kitchen)                               {channel="mqtt:topic:kitchen:Night_SetT"}
+
+Number     Kitchen_Chart_Period                                                       <bargraph>            (Kitchen)
+
+/////////********************************************************************////////
+Number     KitchenRoom_HTP1_battery        "KitchenRoom_HTP1_battery"                 <battery>             (Kitchen)                               {channel="mqtt:topic:xiaomi:KitchenRoom_HTP1_battery"}
+
+Number     KitchenRoom_HTP1_linkquality    "KitchenRoom_HTP1_linkquality"             <qualityofservice>    (Kitchen)                               {channel="mqtt:topic:xiaomi:KitchenRoom_HTP1_linkquality"}
+
+Number     KitchenRoom_HTP1_voltage        "KitchenRoom_HTP1_voltage"                 <energy>              (Kitchen)                               {channel="mqtt:topic:xiaomi:KitchenRoom_HTP1_voltage"}
+
+
+Number     KitchenRoom_CS1_battery         "KitchenRoom_CS1_battery"                  <battery>             (Kitchen)                               {channel="mqtt:topic:xiaomi:KitchenRoom_CS1_battery"}
+
+Number     KitchenRoom_CS1_linkquality     "KitchenRoom_CS1_linkquality"              <qualityofservice>    (Kitchen)                               {channel="mqtt:topic:xiaomi:KitchenRoom_CS1_linkquality"}
+
+Number     KitchenRoom_CS1_voltage         "KitchenRoom_CS1_voltage"                  <energy>              (Kitchen)                               {channel="mqtt:topic:xiaomi:KitchenRoom_CS1_voltage"}
+
+

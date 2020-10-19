@@ -1,0 +1,412 @@
+sitemap default label="Мой Дом" {
+/////////********************************************************************////////	
+	Frame label=""
+	{
+ 
+		Text item=mainrelay1_online label="нет связи с главным реле []" icon="error" labelcolor=[==OFF="red"]	visibility=[mainrelay1_online ==OFF]
+		Text item=bathroom1_online label="нет связи с реле1 в ванной []" icon="error" labelcolor=[==OFF="red"]	visibility=[bathroom1_online ==OFF]
+		Text item=bathroom2_online label="нет связи с реле2 в ванной []" icon="error" labelcolor=[==OFF="red"]	visibility=[bathroom2_online ==OFF]
+		Text item=ESP005F543D_online label="нет связи с датчиками энергии []" icon="error" labelcolor=[==OFF="red"] visibility=[ESP005F543D_online ==OFF]
+		Text item=nas_online label="нет связи с сетевым хранилицем []"		icon="error"	labelcolor=[==OFF="red"]	visibility=[nas_online ==OFF]
+
+	}
+/////////********************************************************************////////	
+	Frame label=""
+	{
+	Text		item=Time_of_Day icon="freetime"
+	Text		item=Outdoor_Temperature label="Погода" icon="weather"
+	
+	{
+	Text		item=Outdoor_Temperature 		icon="temperature"
+	Text		item=Atmospheric_Humidity 		icon="humidity"
+	Text		item=Wind_Speed 				icon="wind"
+	Text		item=Barometric_Pressure		icon="gauge"
+	Text		item=Kitchen_Pressure			label="Атмосферное давление"	 icon="gauge"	
+	}
+	}
+/////////********************************************************************////////
+Frame label=""
+	{
+ 
+	Switch item=Gateway_LightSwitch		icon="nightlight"		mappings=[ON="ON", OFF="OFF"]  visibility=[gateway_online ==ON]
+	Slider item=Gateway_Brightness label="Brightness"	icon="brightness"	visibility=[Gateway_LightSwitch ==ON]
+	Slider item=Gateway_ColorTemperature label="Color Temperature"  visibility=[Gateway_LightSwitch ==ON]
+	Slider item=Gateway_AmbientLight label="AmbientLight"			visibility=[Gateway_LightSwitch ==ON]
+	Colorpicker item=Gateway_Color label="Color" icon="colorwheel"	visibility=[Gateway_LightSwitch ==ON]
+
+	}
+/////////********************************************************************////////
+Frame label="" 
+	{
+		Text		item=Kitchen						label="Кухня" icon="kitchen"
+		{
+		Text		item=Kitchen_Humidity				label="Влажность"	icon="humidity"						valuecolor=[>=40="green",<40="orange",>85="orange"]
+		Text		item=Kitchen_Temperature			label="Температура"	icon="temperature"						valuecolor=[>=23="green",<23="blue",>26="orange"]  
+		Text 		item=Kitchen_window					label="Окно"
+
+		Text		item=Kitchen_auto_Temperature		label="Уставка температура"			  		valuecolor=[>=23="green",<23="blue",>26="orange"] visibility=[Kitchen_auto_Heater ==ON]
+		{
+		Text		item=Kitchen_auto_Temperature	label="Уставка температура"					valuecolor=[>=23="green",<23="blue",>26="orange"]
+		Switch		item=Kitchen_SetT_Global   		label="Глобальный режим температуры"				valuecolor=[ON="green",OFF="yellow"]	mappings=[ON="Вкл", OFF="Выкл"]
+		Setpoint	item=Kitchen_set_Temperature	label="Уст. температура"				valuecolor=[>=23="green",<23="blue",>26="orange"]  visibility=[Kitchen_SetT_Global ==ON]
+		Setpoint	item=Kitchen_Morning_SetT		label="Уст. Т утром "			valuecolor=[>=23="green",<23="blue",>26="orange"] visibility=[Kitchen_SetT_Global ==OFF]
+		Setpoint	item=Kitchen_Day_SetT			label="Уст. Т днем"				valuecolor=[>=23="green",<23="blue",>26="orange"] visibility=[Kitchen_SetT_Global ==OFF]
+		Setpoint	item=Kitchen_Evening_SetT		label="Уст. Т вечером"			valuecolor=[>=23="green",<23="blue",>26="orange"] visibility=[Kitchen_SetT_Global ==OFF]
+		Setpoint	item=Kitchen_Night_SetT			label="Уст. Т ночью"			valuecolor=[>=23="green",<23="blue",>26="orange"] visibility=[Kitchen_SetT_Global ==OFF]
+		}		
+
+
+
+		
+		Switch		item=Kitchen_Heater					label="Обогреватель"						valuecolor=[ON="green",OFF="yellow"]	mappings=[ON="Вкл", OFF="Выкл"]
+		Switch		item=Kitchen_auto_Heater   			label="Поддержание температуры"				valuecolor=[ON="green",OFF="yellow"]	mappings=[ON="Авто", OFF="Выкл"]
+		Switch		item=Kitchen_Boiler					label="Бойлер"								valuecolor=[ON="green",OFF="yellow"]	mappings=[ON="Вкл", OFF="Выкл"]
+		Switch		item=Kitchen_night_Boiler			label="Вкл бойлер ночью"					valuecolor=[ON="green",OFF="yellow"]	mappings=[ON="Авто", OFF="Выкл"]
+		
+		
+		Switch item=Kitchen_Chart_Period label="Графики" mappings=[0="OFF",1="1ч", 2="8ч", 3="24ч", 4="7д"]
+
+		Chart item=KitchenGrafT period=h refresh=3000 visibility=[Kitchen_Chart_Period==1]
+		Chart item=KitchenGrafT period=8h refresh=3000 visibility=[Kitchen_Chart_Period==2]
+		Chart item=KitchenGrafT period=24h refresh=3000 visibility=[Kitchen_Chart_Period==3]
+		Chart item=KitchenGrafT period=W refresh=3000 visibility=[Kitchen_Chart_Period==4]
+		
+
+
+
+		Text		item=KitchenRoom_HTP1_battery			label="HTP1_battery"				valuecolor=[>=90="green",<49="red",>50="orange"]  visibility=[KitchenRoom_HTP1_battery < 80]
+		Text		item=KitchenRoom_HTP1_linkquality		label="HTP1_linkquality"			valuecolor=[>=3="green",<1="orange",2="orange"]  visibility=[KitchenRoom_HTP1_linkquality < 2]
+		Text		item=KitchenRoom_CS1_battery			label="CS1_battery"					valuecolor=[>=90="green",<49="red",>50="orange"]  visibility=[KitchenRoom_CS1_battery < 80]
+		Text		item=KitchenRoom_CS1_linkquality		label="CS1_linkquality"				valuecolor=[>=40="green",<40="orange",>85="orange"]  visibility=[KitchenRoom_CS1_linkquality < 2]
+		}
+		Text		item=Kitchen_Temperature			label="Температура в кухне"		icon="temperature"				valuecolor=[>=23="green",<23="blue",>26="orange"]  
+		Text		item=Kitchen_Humidity				label="Влажность в кухне"		icon="humidity"			valuecolor=[>=40="green",<40="orange",>85="orange"]  
+	}
+
+/////////********************************************************************////////	
+    Frame label=" "
+	{
+		Text 		item=LivingRoom						label="Гостиная"		icon="livingroom"			
+		{
+		Text		item=LivingRoom_Humidity			label="Влажность"		icon="humidity"					valuecolor=[>=40="green",<40="orange",>85="orange"]  
+		Text		item=LivingRoom_Temperature			label="Температура"		icon="temperature"						valuecolor=[>=23="green",<23="blue",>26="orange"] 
+		Text 		item=LivingRoom_Window1				label="Окно 1"
+		Text		item=LivingRoom_auto_Temperature	label="Уставка температура"					valuecolor=[>=23="green",<23="blue",>26="orange"] visibility=[LivingRoom_auto_Heater ==ON] 
+		{
+		Text		item=LivingRoom_auto_Temperature	label="Уставка температура"					valuecolor=[>=23="green",<23="blue",>26="orange"]
+		Switch		item=LivingRoom_SetT_Global   		label="Глобальный режим температуры"				valuecolor=[ON="green",OFF="yellow"]	mappings=[ON="Вкл", OFF="Выкл"]
+		Setpoint	item=LivingRoom_set_Temperature		label="Уст. температура"				valuecolor=[>=23="green",<23="blue",>26="orange"]  visibility=[LivingRoom_SetT_Global ==ON]
+		Setpoint	item=LivingRoom_Morning_SetT		label="Уст. Т утром "			valuecolor=[>=23="green",<23="blue",>26="orange"] visibility=[LivingRoom_SetT_Global ==OFF]
+		Setpoint	item=LivingRoom_Day_SetT			label="Уст. Т днем"				valuecolor=[>=23="green",<23="blue",>26="orange"] visibility=[LivingRoom_SetT_Global ==OFF]
+		Setpoint	item=LivingRoom_Evening_SetT		label="Уст. Т вечером"			valuecolor=[>=23="green",<23="blue",>26="orange"] visibility=[LivingRoom_SetT_Global ==OFF]
+		Setpoint	item=LivingRoom_Night_SetT			label="Уст. Т ночью"			valuecolor=[>=23="green",<23="blue",>26="orange"] visibility=[LivingRoom_SetT_Global ==OFF]
+		}
+
+		Switch		item=LivingRoom_Heater1				label="Обогреватель 1"						valuecolor=[ON="green",OFF="yellow"]	mappings=[ON="Вкл", OFF="Выкл"]
+		Switch		item=LivingRoom_Heater2				label="Обогреватель 2"						valuecolor=[ON="green",OFF="yellow"]	mappings=[ON="Вкл", OFF="Выкл"]
+		Switch		item=LivingRoom_auto_Heater   		label="Поддержание температуры"				valuecolor=[ON="green",OFF="yellow"]	mappings=[ON="Авто", OFF="Выкл"]
+		Switch item=LivingRoom_Chart_Period label="Графики" mappings=[0="OFF",1="1ч", 2="8ч", 3="24ч", 4="7д"]
+		Chart item=LivingRoomGrafT period=h refresh=3000 visibility=[LivingRoom_Chart_Period==1]
+		Chart item=LivingRoomGrafT period=8h refresh=3000 visibility=[LivingRoom_Chart_Period==2]
+		Chart item=LivingRoomGrafT period=24h refresh=3000 visibility=[LivingRoom_Chart_Period==3]
+		Chart item=LivingRoomGrafT period=W refresh=3000 visibility=[LivingRoom_Chart_Period==4]
+		
+
+
+
+
+		Text		item=LivingRoom_HT1_battery			label="HTP1_battery"				valuecolor=[>=90="green",<49="red",>50="orange"] visibility=[LivingRoom_HT1_battery < 80]
+		Text		item=LivingRoom_HT1_linkquality		label="HTP1_linkquality"			valuecolor=[>=3="green",<1="orange",2="orange"]  visibility=[LivingRoom_HT1_linkquality < 2]
+		Text		item=LivingRoom_CS1_battery			label="CS1_battery"					valuecolor=[>=90="green",<49="red",>50="orange"] visibility=[LivingRoom_CS1_battery < 80]
+		Text		item=LivingRoom_CS1_linkquality		label="CS1_linkquality"				valuecolor=[>=40="green",<40="orange",>85="orange"]  visibility=[LivingRoom_CS1_linkquality < 2]
+
+
+
+
+		}
+		Text		item=LivingRoom_Temperature			label="Температура в гостиной"	icon="temperature"				valuecolor=[>=23="green",<23="blue",>26="orange"] 
+		Text		item=LivingRoom_Humidity			label="Влажность в гостиной"	icon="humidity"			valuecolor=[>=40="green",<40="orange",>85="orange"] 
+	
+	}
+
+/////////********************************************************************////////		
+Frame label=" "
+	{
+		Text		item=KidsRoom 						label="Детская комната" icon="childroom"
+		{
+		Text		item=KidsRoom_Humidity				label="Влажность"			icon="humidity"				valuecolor=[>=40="green",<40="orange",>85="orange"]  
+		Text		item=KidsRoom_Temperature			label="Температура"			icon="temperature"			valuecolor=[>=23="green",<23="blue",>26="orange"] 
+		Text		item=KidsRoom_auto_Temperature		label="Уставка температура"					valuecolor=[>=23="green",<23="blue",>26="orange"]		visibility=[KidsRoom_auto_Heater ==ON]
+		{
+		Text		item=KidsRoom_auto_Temperature		label="Уставка температура"					valuecolor=[>=23="green",<23="blue",>26="orange"]
+		Switch		item=KidsRoom_SetT_Global   		label="Глобальный режим температуры"		valuecolor=[ON="green",OFF="yellow"]	mappings=[ON="Вкл", OFF="Выкл"]
+		Setpoint	item=KidsRoom_set_Temperature		label="Уст. температура"				valuecolor=[>=23="green",<23="blue",>26="orange"]  visibility=[KidsRoom_SetT_Global ==ON]
+		Setpoint	item=KidsRoom_Morning_SetT			label="Уст. Т утром "					valuecolor=[>=23="green",<23="blue",>26="orange"] visibility=[KidsRoom_SetT_Global ==OFF]
+		Setpoint	item=KidsRoom_Day_SetT				label="Уст. Т днем"						valuecolor=[>=23="green",<23="blue",>26="orange"] visibility=[KidsRoom_SetT_Global ==OFF]
+		Setpoint	item=KidsRoom_Evening_SetT			label="Уст. Т вечером"					valuecolor=[>=23="green",<23="blue",>26="orange"] visibility=[KidsRoom_SetT_Global ==OFF]
+		Setpoint	item=KidsRoom_Night_SetT			label="Уст. Т ночью"					valuecolor=[>=23="green",<23="blue",>26="orange"] visibility=[KidsRoom_SetT_Global ==OFF]
+		}		
+		Text 	 	item=KidsRoom_Window				label="Окно"
+
+		Switch		item=KidsRoom_Heater  				label="Обогреватель"						valuecolor=[ON="green",OFF="yellow"]	mappings=[ON="Вкл", OFF="Выкл"]
+		Switch		item=KidsRoom_auto_Heater   		label="Поддержание температуры"				valuecolor=[ON="green",OFF="yellow"]	mappings=[ON="Авто", OFF="Выкл"]
+
+
+		Switch item=KidsRoom_Chart_Period label="Графики" mappings=[0="OFF",1="1ч", 2="8ч", 3="24ч", 4="7д"]
+
+		Chart item=KidsRoomGrafT period=h refresh=3000 visibility=[KidsRoom_Chart_Period==1]
+		Chart item=KidsRoomGrafT period=8h refresh=3000 visibility=[KidsRoom_Chart_Period==2]
+		Chart item=KidsRoomGrafT period=24h refresh=3000 visibility=[KidsRoom_Chart_Period==3]
+		Chart item=KidsRoomGrafT period=W refresh=3000 visibility=[KidsRoom_Chart_Period==4]
+
+		
+
+
+		Text		item=KidsRoom_HT1_battery			label="HT1_battery"				valuecolor=[>=90="green",<49="red",>50="orange"]  visibility=[KidsRoom_HT1_battery < 80]
+		Text		item=KidsRoom_HT1_linkquality		label="HT1_linkquality"			valuecolor=[>=3="green",<1="orange",2="orange"]  visibility=[KidsRoom_HT1_linkquality < 2]
+		Text		item=KidsRoom_HT2_battery			label="HT2_battery"				valuecolor=[>=90="green",<49="red",>50="orange"] visibility=[KidsRoom_HT2_battery < 80]
+		Text		item=KidsRoom_HT2_linkquality		label="HT2_linkquality"			valuecolor=[>=3="green",<1="orange",2="orange"]  visibility=[KidsRoom_HT2_linkquality < 2]
+		Text		item=KidsRoom_CS1_battery			label="CS1_battery"					valuecolor=[>=90="green",<49="red",>50="orange"] visibility=[KidsRoom_CS1_battery < 80]
+		Text		item=KidsRoom_CS1_linkquality		label="CS1_linkquality"				valuecolor=[>=40="green",<40="orange",>85="orange"] visibility=[KidsRoom_CS1_linkquality < 2] 
+		}
+		Text		item=KidsRoom_Temperature			label="Температура в детской"			icon="temperature"					valuecolor=[>=23="green",<23="blue",>26="orange"] 
+		Text		item=KidsRoom_Humidity				label="Влажность в детской"			icon="humidity"				valuecolor=[>=40="green",<40="orange",>85="orange"]  
+	
+	}
+/////////********************************************************************////////
+	Frame label=" "
+	{
+		Text		item=Bathroom 						label="Ванная комната"      icon="bathroom"
+		{
+		Text		item=Bathroom_Humidity				label="Влажность"			icon="humidity"				valuecolor=[>=40="green",<40="orange",>85="orange"]  
+		Text		item=Bathroom_Temperature			label="Температура"			icon="temperature"					valuecolor=[>=23="green",<23="blue",>26="orange"] 
+		
+		
+		Setpoint	item=Bathroom_set_Humidity			label="Уст. влажность"					valuecolor=[>=23="green",<23="blue",>26="orange"]
+		Switch		item=Bathroom_Lamp1  				label="Лампа зеркало"						valuecolor=[ON="green",OFF="yellow"]	mappings=[ON="Вкл", OFF="Выкл"]
+		Switch		item=Bathroom_Lamp2  				label="Лампа основная"						valuecolor=[ON="green",OFF="yellow"]	mappings=[ON="Вкл", OFF="Выкл"]
+		Switch		item=Bathroom_Auto_Lamp		   		label="Авто свет"							valuecolor=[ON="green",OFF="yellow"]	mappings=[ON="Авто", OFF="Выкл"]
+		Switch		item=Bathroom_Blower		   		label="Вытяжка"								valuecolor=[ON="green",OFF="yellow"]	mappings=[ON="Вкл", OFF="Выкл"]
+		Switch		item=Bathroom_AutoHumidity			label="Поддержание влажности"				valuecolor=[ON="green",OFF="yellow"]	mappings=[ON="Авто", OFF="Выкл"]
+		Chart		item=BathroomGrafT period=8h refresh=300	legend=true
+		Chart		item=BathroomGrafH period=8h refresh=300	legend=true
+		
+		Text		item=Bathroom_HT1_battery			label="HT1_battery"				valuecolor=[>=90="green",<49="red",>50="orange"]  visibility=[Bathroom_HT1_battery < 80]
+		Text		item=Bathroom_HT1_linkquality		label="HT1_linkquality"			valuecolor=[>=3="green",<1="orange",2="orange"]  visibility=[Bathroom_HT1_linkquality < 2]
+		Text		item=Bathroom_Switch_battery		label="Switch_battery"				valuecolor=[>=90="green",<49="red",>50="orange"] visibility=[Bathroom_Switch_battery < 80]
+		Text		item=Bathroom_Switch_linkquality	label="Switch_linkquality"			valuecolor=[>=3="green",<1="orange",2="orange"]  visibility=[Bathroom_Switch_linkquality < 2]
+		Text		item=Bathroom_MS_battery			label="MS_battery"				valuecolor=[>=90="green",<49="red",>50="orange"] visibility=[Bathroom_MS_battery < 80]
+		Text		item=Bathroom_MS_linkquality		label="MS_linkquality"			valuecolor=[>=3="green",<1="orange",2="orange"]  visibility=[Bathroom_MS_linkquality < 2]
+		
+		
+		}
+		Text		item=Bathroom_Temperature			label="Температура в ванной"	icon="temperature"				valuecolor=[>=23="green",<23="blue",>26="orange"] 
+		Text		item=Bathroom_Humidity				label="Влажность в ванной"		icon="humidity"			valuecolor=[>=40="green",<40="orange",>85="orange"]  
+	}
+
+
+/////////********************************************************************////////   
+Frame label=" "
+   {
+	Switch 		item=Rejim icon="lock"   label="Режим"  mappings=[1="Охрана", 2="Дома", 3="Авто"]
+	Text			item=Main_Door						label="Дверь" icon="door"
+   }
+/////////********************************************************************////////
+Frame label=""
+	{
+
+		Switch item=radio_status label="Радио" icon="radiowithantenna" mappings=[ON="ON", OFF="OFF"] visibility=[gateway_online ==ON]
+		Setpoint item=radio_volume label="Громкость [%.0f]" icon="radiosoundvolume" minValue=0 maxValue=100 step=1 visibility=[radio_status ==ON]
+		Selection item=radio_program_id label="Станция" icon="radiowaves" visibility=[radio_status ==ON] mappings=[
+										527782833="десткое радио",
+										527782799="DFM владивосток",
+										527782775="Energy FM",
+										527782770="Comedy Radio",
+										527782731="Юмор FM",
+										527782692="Вести FM",
+										527782684="Maximum",
+										527782553="Dinamit FM",
+										527782517="American Road Radio",
+										527782008="Авторадио",
+										527782024="Европа Плюс",
+										527782030="Radio Record",
+										527782436="Disney",
+										527782561="Европа Плюс",
+										527782050="Спокойное радио",
+										527782223="Владивосток FM"]
+
+
+	}
+/////////********************************************************************////////
+Frame label="" 
+	{
+		Text label="Samsung TV" icon="smarttv" visibility=[SamsungTV_online ==ON]
+		
+		
+		{
+		Switch item=SamsungTV_Key_Code label="Chaine +/-" icon="text" mappings=[KEY_CHUP="+", KEY_CHDOWN="-"]
+		Switch item=SamsungTV_Key_Code label="Volume +/-" icon="text" mappings=[KEY_VOLUP="+", KEY_VOLDOWN="-"]
+		Switch item=SamsungTV_Key_Code label="Mute ON/OFF" icon="text" mappings=[KEY_MUTE="ON", KEY_MUTE="OFF"]
+		Switch item=SamsungTV_Key_Code label="Source" icon="text" mappings=[KEY_SOURCE="SOURCE", KEY_HDMI="HDMI",KEY_DTV="DTV" ]
+		Switch item=SamsungTV_Key_Code label="Key" icon="text" mappings=[KEY_UP="UP", KEY_DOWN="DOWN",KEY_RIGHT="RIGHT", KEY_LEFT= "LEFT" ]
+		Switch item=SamsungTV_Key_Code label="Menu" icon="text" mappings=[KEY_MENU="MENU", KEY_TOOLS="TOOLS",KEY_ENTER="ENTER", KEY_RETURN= "RETURN" ]
+		}
+		Switch item=SamsungTV_Power icon="powerbutton" mappings=[ON="ON", OFF="OFF"] visibility=[SamsungTV_online ==ON]
+	
+	}
+/////////********************************************************************////////
+Frame label="" 
+	{
+	Switch item=PS4_Power icon="ps4" mappings=[ON="ON", OFF="OFF"] 	visibility=[PS4_Power ==OFF]
+	Switch item=PS4_Power icon="powerbutton"  mappings=[ON="ON", OFF="OFF"]	visibility=[PS4_Power ==ON]
+	Text label="PlayStation 4" icon="ps4"	visibility=[PS4_Power ==ON]
+   {
+
+        Text item=PS4_Application
+        Text item=PS4_ApplicationId
+		 Switch item=PS4_Connect
+        //Text item=PS4_2ndScr
+		Selection item=PS4_ApplicationId mappings=[
+			"CUSA00127"="Netflix",
+			"CUSA01116"="Youtube",
+			"CUSA02827"="HBO",
+			"CUSA01780"="Spotify",
+			"CUSA11993"="Marvel's Spider-Man"]
+		Image item=PS4_ArtWork
+		//Text item=PS4_OSKText
+       
+       // Text item=PS4_SendKey
+		Switch item=PS4_SendKey  icon="text" mappings=[
+            "keyUp"="Up",
+            "keyDown"="Down",
+            "keyLeft"="Left",
+			"keyRight"="Right"]
+		Switch item=PS4_SendKey  icon="text" mappings=[
+            "keySelect"="Select",
+            "keyBack"="Back",
+            "keyOption"="Option",
+            "keyPS"="PS" ]
+   }
+
+   }
+/////////********************************************************************////////
+ Frame  {
+  
+//Switch item=HNG_HyperionEnabled icon="powerbutton"  mappings=[ON="ON", OFF="OFF"]  visibility=[HNG_HyperionEnabled ==ON]
+Text label="Hyperion" icon="colorlight"// visibility=[HNG_online ==ON]
+  {
+  Switch item=HNG_HyperionEnabled icon="colorlight" //mappings=[ON="ON", OFF="OFF"]
+  Switch item=HNG_LedDeviceEnabled
+  Slider item=HNG_yperion_Brightness
+  Colorpicker item=HNG_MyColor
+  Selection item=HNG_Effect mappings=[
+    'Cinema brighten lights'='Cinema brighten lights',
+    'Cinema dim lights'='Cinema dim lights',
+    'Knight rider'='Knight rider',
+    'Blue mood blobs'='Blue mood blobs',
+    'Cold mood blobs'='Cold mood blobs',
+    'Full color mood blobs'='Full color mood blobs',
+    'Green mood blobs'='Green mood blobs',
+    'Red mood blobs'='Red mood blobs',
+    'Warm mood blobs'='Warm mood blobs',
+    'Police Lights Single'='Police Lights Single',
+    'Police Lights Solid'='Police Lights Solid',
+    'Rainbow mood'='Rainbow mood',
+    'Rainbow swirl fast'='Rainbow swirl fast',
+    'Rainbow swirl'='Rainbow swirl',
+    'Running dots'='Running dots',
+    'System Shutdown'='System Shutdown',
+    'Snake'='Snake',
+    'Sparks Color'='Sparks Color',
+    'Sparks'='Sparks',
+    'Strobe blue'='Strobe blue',
+    'Strobe Raspbmc'='Strobe Raspbmc',
+    'Strobe white'='Strobe white',
+    'Color traces'='Color traces',
+    'X-Mas'='X-Mas'
+  ]
+  Switch item=HNG_Clear mappings=[50="Clear"]
+  Switch item=HNG_BlackBorderEnabled
+  Switch item=HNG_SmoothingEnabled
+  Switch item=HNG_KodiCheckerEnabled
+  Switch item=HNG_ForwarderEnabled
+  Switch item=HNG_UdpListenerEnabled
+  Switch item=HNG_BoblightEnabled
+  Switch item=HNG_GrabberEnabled
+  Switch item=HNG_V4lEnabled
+
+  }
+  
+ }
+/////////********************************************************************////////
+Frame label="" 
+	{
+	Text label="Nas" icon="nas"				 visibility=[nas_online ==ON]
+   {
+
+		Text item=raidFreeSize	icon="pie"
+        Text item=raidTotalSize			 icon="pie"
+   }
+	}
+
+/////////********************************************************************////////
+	Frame label=" "
+	{	
+		Text 		item=Settings 						label="Графики"	icon="bargraph"	
+		{
+		Chart		item=gTemperature period=8h refresh=300	legend=true
+		Chart		item=gHumidity period=8h refresh=300	legend=true
+		Chart		item=gEnergy1 period=W refresh=300	legend=true
+		Chart		item=gEnergy2 period=W refresh=300	legend=true
+		
+		}
+		Text 		item=Settings 						label="Settings"	icon="setting"		
+		{
+		Switch		item=notification_app mappings=[ON="ON", OFF="OFF"]
+		Text		item=Humidity_srv				label="Влажность"							valuecolor=[>=40="green",<40="orange",>85="orange"]  
+		Text		item=Temperature_srv			label="Температура"							valuecolor=[>=23="green",<23="blue",>35="orange"] 
+		Setpoint	item=T_Kof						label="Коэцифиент температура"				valuecolor=[>=23="green",<23="blue",>26="orange"]
+		Switch item=ohbackup						label="Резервное копирование"				valuecolor=[ON="green",OFF="yellow"]	mappings=[ON="Выполнить"]
+        Text item=ohbackupLastExecution				label="Резервное копирование выполнено"
+
+		}
+		Text		item=Settings 						label="LogFiles"	icon="logformat"		
+		{
+		Webview url="https://smarthomelogs.1aan.ru/" height=20			
+		}
+
+				 
+
+
+		Text 		item=Settings 		label="energy"   	icon="energy"	 visibility=[ESP005F543D_online ==ON]
+		{
+		Text		item=PowerMeter
+		Text		item=PowerMeter_night
+		Text		item=PowerMeter_day
+		Text		item=PowerMeter_1night
+		Text		item=PowerMeter_1day
+		Text		item=PowerMeter_day_cm
+		Text		item=PowerMeter_night_cm
+		Text		item=PhaseA_Voltage
+		Text		item=PhaseB_Voltage
+		Text		item=PhaseC_Voltage
+		Text		item=PhaseA_Current
+		Text		item=PhaseB_Current
+		Text		item=PhaseC_Current
+		Text		item=PhaseA_Power
+		Text		item=PhaseB_Power
+		Text		item=PhaseC_Power
+		Text		item=PhaseA_PowerMeter
+		Text		item=PhaseB_PowerMeter
+		Text		item=PhaseC_PowerMeter
+		Text		item=PhaseA_PowerFactor
+		Text		item=PhaseB_PowerFacto
+		Text		item=PhaseC_PowerFactor
+		}
+	}
+
+// Hide default navigation
+//Webview url="/static/HideHeader.html"
+//Webview url="/static/DarkTheme.html"
+//Webview url="/static/MyTheme.html"
+}

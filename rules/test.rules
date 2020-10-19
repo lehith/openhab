@@ -1,0 +1,11 @@
+rule "log comand PS4_Power"
+    when Item PS4_Power changed
+    then
+        logInfo("Events", "PS4_Power "+PS4_Power.state)
+    end
+
+rule "log comand SamsungTV_Power"
+    when Item SamsungTV_Power changed
+    then
+        logInfo("Events", "SamsungTV_Power "+SamsungTV_Power.state)
+    end
