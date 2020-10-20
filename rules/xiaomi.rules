@@ -13,7 +13,7 @@ rule "gateway_command_rx"
 rule "gateway_command_tx"
     when Item gateway_command_tx received update  
     then
-    gateway_send_command.sendCommand(gateway_command_tx.state)
+    gateway_send_command.sendCommand(gateway_command_tx.state.toString)
     end
 
 rule "log comand"
