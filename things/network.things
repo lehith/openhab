@@ -7,4 +7,5 @@ Thing network:pingdevice:SamsungTV_online [ hostname="192.168.1.200", macAddress
 Thing network:pingdevice:ESP005F543D_online [ hostname="192.168.1.5", macAddress="DC:4F:22:5F:54:3D" ]
 Thing network:pingdevice:nas_online [ hostname="192.168.1.2", macAddress="00:11:32:2C:A6:03" ]
 Thing network:pingdevice:HNG_online [ hostname="192.168.1.185", macAddress="dc:a6:32:c6:2e:d1" ]
+Thing network:pingdevice:MiNote10Pro_online [ hostname="192.168.1.100", macAddress="20:F4:78:2F:A1:DA" ]
 

@@ -20,7 +20,7 @@ Number    Srv_HT_voltage                 "Srv_HT_voltage"                  <ener
 /////////********************************************************************////////
 Switch    gateway_online                                                                                     {channel="network:pingdevice:gateway_online:online"}
 
-String    gateway_send_command           "gateway_send_command[]"                                            {channel="miio:unsupported:07ED1AD9:actions#commands"}
+String    gateway_send_command           "gateway_send_command[]"                                            {channel="miio:generic:07ED1AD9:actions#commands"}
 
 Switch    gateway_radio_on               "gateway_send_radioon"
 
