@@ -75,4 +75,9 @@ Rejim :                            strategy =  everyChange, restoreOnStartup
 LivingRoom_Chart_Period :          strategy =  everyChange, restoreOnStartup
 Kitchen_Chart_Period :             strategy =  everyChange, restoreOnStartup
 KidsRoom_Chart_Period :            strategy =  everyChange, restoreOnStartup
+Outdoor_Temperature :              strategy =  everyChange, restoreOnStartup
+Barometric_Pressure :              strategy =  everyChange, restoreOnStartup
+Atmospheric_Humidity :             strategy =  everyChange, restoreOnStartup
+Wind_Speed :                       strategy =  everyChange, restoreOnStartup
+Weather_Chart_Period :             strategy =  everyChange, restoreOnStartup
 }	

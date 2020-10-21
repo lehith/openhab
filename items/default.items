@@ -33,7 +33,7 @@ Number                      Outdoor_Temperature       "Температура в
 Number                      Barometric_Pressure       "Атмосферное давление [%.0f Па]"         <Pressure>                                 {channel="openweathermap:weather-and-forecast:5507bb6e:local:current#pressure"}
 Number                      Atmospheric_Humidity      "Влажность [%.0f %%]"                    <humidity>                                 {channel="openweathermap:weather-and-forecast:5507bb6e:local:current#humidity"}
 Number                      Wind_Speed                "Скорость ветра [%.0f mc]"               <Speed>                                    {channel="openweathermap:weather-and-forecast:5507bb6e:local:current#wind-speed"}
-
+Number                      Weather_Chart_Period                                               <bargraph>
 /////////********************************************************************////////
 Switch                      SamsungTV_online                                                                                              {channel="network:pingdevice:SamsungTV_online:online"}
 
