@@ -3,48 +3,48 @@ Group      KidsRoomGrafT                "Группа графики Детск�
 Group      KidsRoomGrafH                "Группа графики Детская"                   <KidsRoomGrafH>       (KidsRoom)
 
 /////////********************************************************************////////
-Switch     KidsRoom_Heater              "Детская обогреватель []"                  <radiator>            (KidsRoom, gHeater)                       {channel="mqtt:topic:kidsroom:Heater"}
+Switch     KidsRoom_Heater              "Детская обогреватель []"                  <radiator>            (KidsRoom, gSendLog)                               {channel="mqtt:topic:kidsroom:Heater"}
 
-Switch     KidsRoom_auto_Heater         "Детская Поддержание температуры []"       <heating>             (KidsRoom, gHeater)                       {channel="mqtt:topic:kidsroom:AutoHeater"}
+Switch     KidsRoom_auto_Heater         "Детская Поддержание температуры []"       <heating>             (KidsRoom, gSendLog)                               {channel="mqtt:topic:kidsroom:AutoHeater"}
 
-Number     KidsRoom_Temperature         "Детская температура [%.1f °C]"            <temperature>         (KidsRoom, gTemperature,KidsRoomGrafT)    {channel="mqtt:topic:kidsroom:Temperature"}
+Number     KidsRoom_Temperature         "Детская температура [%.1f °C]"            <temperature>         (KidsRoom, gTemperature,KidsRoomGrafT,gSendLog)    {channel="mqtt:topic:kidsroom:Temperature"}
 
-Number     KidsRoom_Humidity            "Детская влажность [%.0f %%]"              <humidity>            (KidsRoom, gHumidity)                     {channel="mqtt:topic:kidsroom:Humidity"}
+Number     KidsRoom_Humidity            "Детская влажность [%.0f %%]"              <humidity>            (KidsRoom, gHumidity)                              {channel="mqtt:topic:kidsroom:Humidity"}
 
-Number     KidsRoom_set_Temperature     "Детская уставка температура [%.0f °C]"    <heating>             (KidsRoom)                                {channel="mqtt:topic:kidsroom:Set_Temperature"}
+Number     KidsRoom_set_Temperature     "Детская уставка температура [%.0f °C]"    <heating>             (KidsRoom)                                         {channel="mqtt:topic:kidsroom:Set_Temperature"}
 
-Number     KidsRoom_auto_Temperature    "Детская авто температура [%.0f °C]"       <heating>             (KidsRoom,KidsRoomGrafT)                  {channel="mqtt:topic:kidsroom:Auto_Temperature"}
+Number     KidsRoom_auto_Temperature    "Детская авто температура [%.0f °C]"       <heating>             (KidsRoom,KidsRoomGrafT,gSendApp)                  {channel="mqtt:topic:kidsroom:Auto_Temperature"}
 
-Contact    KidsRoom_Window              "Детская окно [MAP(window.map):%s]"        <window>              (KidsRoom)                                {channel="mqtt:topic:kidsroom:Window"}
+Contact    KidsRoom_Window              "Детская окно [MAP(window.map):%s]"        <window>              (KidsRoom,gSendLog,gSendApp)                       {channel="mqtt:topic:kidsroom:Window"}
 
-Switch     KidsRoom_SetT_Global         "Использовать глобальные параметры []"     <heating>             (KidsRoom, gHeater)                       {channel="mqtt:topic:kidsroom:SetT_Global"}
+Switch     KidsRoom_SetT_Global         "Использовать глобальные параметры []"     <heating>             (KidsRoom)                                         {channel="mqtt:topic:kidsroom:SetT_Global"}
 
-Number     KidsRoom_Morning_SetT        "Детская уставка Т утро [%.0f °C]"         <heating>             (KidsRoom)                                {channel="mqtt:topic:kidsroom:Morning_SetT"}
+Number     KidsRoom_Morning_SetT        "Детская уставка Т утро [%.0f °C]"         <heating>             (KidsRoom)                                         {channel="mqtt:topic:kidsroom:Morning_SetT"}
 
-Number     KidsRoom_Day_SetT            "Детская уставка Т день [%.0f °C]"         <heating>             (KidsRoom)                                {channel="mqtt:topic:kidsroom:Day_SetT"}
+Number     KidsRoom_Day_SetT            "Детская уставка Т день [%.0f °C]"         <heating>             (KidsRoom)                                         {channel="mqtt:topic:kidsroom:Day_SetT"}
 
-Number     KidsRoom_Evening_SetT        "Детская уставка Т вечер [%.0f °C]"        <heating>             (KidsRoom)                                {channel="mqtt:topic:kidsroom:Evening_SetT"}
+Number     KidsRoom_Evening_SetT        "Детская уставка Т вечер [%.0f °C]"        <heating>             (KidsRoom)                                         {channel="mqtt:topic:kidsroom:Evening_SetT"}
 
-Number     KidsRoom_Night_SetT          "Детская уставка Т ночь [%.0f °C]"         <heating>             (KidsRoom)                                {channel="mqtt:topic:kidsroom:Night_SetT"}
+Number     KidsRoom_Night_SetT          "Детская уставка Т ночь [%.0f °C]"         <heating>             (KidsRoom)                                         {channel="mqtt:topic:kidsroom:Night_SetT"}
 
 Number     KidsRoom_Chart_Period                                                   <bargraph>            (KidsRoom)
 
 
 /////////********************************************************************////////
-Number     KidsRoom_HT1_battery         "KidsRoom_HT1_battery"                     <battery>             (KidsRoom)                                {channel="mqtt:topic:xiaomi:KidsRoom_HT1_battery"}
+Number     KidsRoom_HT1_battery         "KidsRoom_HT1_battery"                     <battery>             (KidsRoom,gSendLog)                                {channel="mqtt:topic:xiaomi:KidsRoom_HT1_battery"}
 
-Number     KidsRoom_HT1_linkquality     "KidsRoom_HT1_linkquality"                 <qualityofservice>    (KidsRoom)                                {channel="mqtt:topic:xiaomi:KidsRoom_HT1_linkquality"}
+Number     KidsRoom_HT1_linkquality     "KidsRoom_HT1_linkquality"                 <qualityofservice>    (KidsRoom,gSendLog)                                {channel="mqtt:topic:xiaomi:KidsRoom_HT1_linkquality"}
 
-Number     KidsRoom_HT1_voltage         "KidsRoom_HT1_voltage"                     <energy>                                                        {channel="mqtt:topic:xiaomi:KidsRoom_HT1_voltage"}
+Number     KidsRoom_HT1_voltage         "KidsRoom_HT1_voltage"                     <energy>                                                                 {channel="mqtt:topic:xiaomi:KidsRoom_HT1_voltage"}
 
-Number     KidsRoom_HT2_battery         "KidsRoom_HT2_battery"                     <battery>             (KidsRoom)                                {channel="mqtt:topic:xiaomi:KidsRoom_HT2_battery"}
+Number     KidsRoom_HT2_battery         "KidsRoom_HT2_battery"                     <battery>             (KidsRoom,gSendLog)                                {channel="mqtt:topic:xiaomi:KidsRoom_HT2_battery"}
 
-Number     KidsRoom_HT2_linkquality     "KidsRoom_HT2_linkquality"                 <qualityofservice>    (KidsRoom)                                {channel="mqtt:topic:xiaomi:KidsRoom_HT2_linkquality"}
+Number     KidsRoom_HT2_linkquality     "KidsRoom_HT2_linkquality"                 <qualityofservice>    (KidsRoom,gSendLog)                                {channel="mqtt:topic:xiaomi:KidsRoom_HT2_linkquality"}
 
-Number     KidsRoom_HT2_voltage         "KidsRoom_HT2_voltage"                     <energy>                                                        {channel="mqtt:topic:xiaomi:KidsRoom_HT2_voltage"}
+Number     KidsRoom_HT2_voltage         "KidsRoom_HT2_voltage"                     <energy>                                                                 {channel="mqtt:topic:xiaomi:KidsRoom_HT2_voltage"}
 
-Number     KidsRoom_CS1_battery         "KidsRoom_CS1_battery"                     <battery>             (KidsRoom)                                {channel="mqtt:topic:xiaomi:KidsRoom_CS1_battery"}
+Number     KidsRoom_CS1_battery         "KidsRoom_CS1_battery"                     <battery>             (KidsRoom,gSendLog)                                {channel="mqtt:topic:xiaomi:KidsRoom_CS1_battery"}
 
-Number     KidsRoom_CS1_linkquality     "KidsRoom_CS1_linkquality"                 <qualityofservice>    (KidsRoom)                                {channel="mqtt:topic:xiaomi:KidsRoom_CS1_linkquality"}
+Number     KidsRoom_CS1_linkquality     "KidsRoom_CS1_linkquality"                 <qualityofservice>    (KidsRoom,gSendLog)                                {channel="mqtt:topic:xiaomi:KidsRoom_CS1_linkquality"}
 
-Number     KidsRoom_CS1_voltage         "KidsRoom_CS1_voltage"                     <energy>                                                        {channel="mqtt:topic:xiaomi:KidsRoom_CS1_voltage"}
+Number     KidsRoom_CS1_voltage         "KidsRoom_CS1_voltage"                     <energy>                                                                 {channel="mqtt:topic:xiaomi:KidsRoom_CS1_voltage"}

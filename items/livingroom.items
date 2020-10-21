@@ -4,43 +4,43 @@ Group      LivingRoomGrafH                "Группа графики Гост�
 //Group:Switch:OR(ON,OFF)    LR_Heaters                     "LivingRoom_Heaters[%d]"
 
 /////////********************************************************************////////
-Contact    LivingRoom_Window1             "Гостиная окно1 [MAP(window.map):%s]"       <window>              (LivingRoom)                                   {channel="mqtt:topic:livingroom:Window1"}
+Contact    LivingRoom_Window1             "Гостиная окно1 [MAP(window.map):%s]"       <window>              (LivingRoom,gSendLog,gSendApp)                          {channel="mqtt:topic:livingroom:Window1"}
 
-Switch     LivingRoom_Heater1             "Гостиная обогреватель 1 []"                <radiator>            (LivingRoom, LR_Heaters)                       {channel="mqtt:topic:livingroom:Heater1"}
+Switch     LivingRoom_Heater1             "Гостиная обогреватель 1 []"                <radiator>            (LivingRoom, gSendLog)                                  {channel="mqtt:topic:livingroom:Heater1"}
 
-Switch     LivingRoom_Heater2             "Гостиная обогреватель 2 []"                <radiator>            (LivingRoom, LR_Heaters)                       {channel="mqtt:topic:livingroom:Heater2"}
+Switch     LivingRoom_Heater2             "Гостиная обогреватель 2 []"                <radiator>            (LivingRoom, gSendLog)                                  {channel="mqtt:topic:livingroom:Heater2"}
 
-Switch     LivingRoom_auto_Heater         "Гостиная Поддержание температуры []"       <heating>             (LivingRoom, gHeater)                          {channel="mqtt:topic:livingroom:AutoHeater"}
+Switch     LivingRoom_auto_Heater         "Гостиная Поддержание температуры []"       <heating>             (LivingRoom,  gSendLog)                                 {channel="mqtt:topic:livingroom:AutoHeater"}
 
-Number     LivingRoom_Temperature         "Гостиная температура [%.1f °C]"            <temperature>         (LivingRoom, gTemperature, LivingRoomGrafT)    {channel="mqtt:topic:livingroom:Temperature"}
+Number     LivingRoom_Temperature         "Гостиная температура [%.1f °C]"            <temperature>         (LivingRoom, gTemperature, LivingRoomGrafT,gSendLog)    {channel="mqtt:topic:livingroom:Temperature"}
 
-Number     LivingRoom_Humidity            "Гостиная влажность [%.0f %%]"              <humidity>            (LivingRoom, gHumidity)                        {channel="mqtt:topic:livingroom:Humidity"}
+Number     LivingRoom_Humidity            "Гостиная влажность [%.0f %%]"              <humidity>            (LivingRoom, gHumidity)                                 {channel="mqtt:topic:livingroom:Humidity"}
 
-Number     LivingRoom_set_Temperature     "Гостиная уставка температура [%.0f °C]"    <heating>             (LivingRoom)                                   {channel="mqtt:topic:livingroom:Set_Temperature"}
+Number     LivingRoom_set_Temperature     "Гостиная уставка температура [%.0f °C]"    <heating>             (LivingRoom)                                            {channel="mqtt:topic:livingroom:Set_Temperature"}
 
-Number     LivingRoom_auto_Temperature    "Гостиная авто температура [%.0f °C]"       <heating>             (LivingRoom, LivingRoomGrafT)                  {channel="mqtt:topic:livingroom:Auto_Temperature"}
+Number     LivingRoom_auto_Temperature    "Гостиная авто температура [%.0f °C]"       <heating>             (LivingRoom, LivingRoomGrafT, gSendLog)                 {channel="mqtt:topic:livingroom:Auto_Temperature"}
 
-Switch     LivingRoom_SetT_Global         "Использовать глобальные параметры []"      <heating>             (LivingRoom, gHeater)                          {channel="mqtt:topic:livingroom:SetT_Global"}
+Switch     LivingRoom_SetT_Global         "Использовать глобальные параметры []"      <heating>             (LivingRoom,  gSendLog)                                 {channel="mqtt:topic:livingroom:SetT_Global"}
 
-Number     LivingRoom_Morning_SetT        "Гостиная уставка Т утро [%.0f °C]"         <heating>             (LivingRoom)                                   {channel="mqtt:topic:livingroom:Morning_SetT"}
+Number     LivingRoom_Morning_SetT        "Гостиная уставка Т утро [%.0f °C]"         <heating>             (LivingRoom)                                            {channel="mqtt:topic:livingroom:Morning_SetT"}
 
-Number     LivingRoom_Day_SetT            "Гостиная уставка Т день [%.0f °C]"         <heating>             (LivingRoom)                                   {channel="mqtt:topic:livingroom:Day_SetT"}
+Number     LivingRoom_Day_SetT            "Гостиная уставка Т день [%.0f °C]"         <heating>             (LivingRoom)                                            {channel="mqtt:topic:livingroom:Day_SetT"}
 
-Number     LivingRoom_Evening_SetT        "Гостиная уставка Т вечер [%.0f °C]"        <heating>             (LivingRoom)                                   {channel="mqtt:topic:livingroom:Evening_SetT"}
+Number     LivingRoom_Evening_SetT        "Гостиная уставка Т вечер [%.0f °C]"        <heating>             (LivingRoom)                                            {channel="mqtt:topic:livingroom:Evening_SetT"}
 
-Number     LivingRoom_Night_SetT          "Гостиная уставка Т ночь [%.0f °C]"         <heating>             (LivingRoom)                                   {channel="mqtt:topic:livingroom:Night_SetT"}
+Number     LivingRoom_Night_SetT          "Гостиная уставка Т ночь [%.0f °C]"         <heating>             (LivingRoom)                                            {channel="mqtt:topic:livingroom:Night_SetT"}
 
 Number     LivingRoom_Chart_Period                                                    <bargraph>            (LivingRoom)
 
 /////////********************************************************************////////
-Number     LivingRoom_HT1_battery         "LivingRoom_HT1_battery"                    <battery>             (LivingRoom)                                   {channel="mqtt:topic:xiaomi:LivingRoom_HT1_battery"}
+Number     LivingRoom_HT1_battery         "LivingRoom_HT1_battery"                    <battery>             (LivingRoom, gSendLog)                                  {channel="mqtt:topic:xiaomi:LivingRoom_HT1_battery"}
 
-Number     LivingRoom_HT1_linkquality     "LivingRoom_HT1_linkquality"                <qualityofservice>    (LivingRoom)                                   {channel="mqtt:topic:xiaomi:LivingRoom_HT1_linkquality"}
+Number     LivingRoom_HT1_linkquality     "LivingRoom_HT1_linkquality"                <qualityofservice>    (LivingRoom, gSendLog)                                  {channel="mqtt:topic:xiaomi:LivingRoom_HT1_linkquality"}
 
-Number     LivingRoom_HT1_voltage         "LivingRoom_HT1_voltage"                    <energy>              (LivingRoom)                                   {channel="mqtt:topic:xiaomi:LivingRoom_HT1_voltage"}
+Number     LivingRoom_HT1_voltage         "LivingRoom_HT1_voltage"                    <energy>              (LivingRoom)                                            {channel="mqtt:topic:xiaomi:LivingRoom_HT1_voltage"}
 
-Number     LivingRoom_CS1_battery         "LivingRoom_CS1_battery"                    <battery>             (LivingRoom)                                   {channel="mqtt:topic:xiaomi:LivingRoom_CS1_battery"}
+Number     LivingRoom_CS1_battery         "LivingRoom_CS1_battery"                    <battery>             (LivingRoom, gSendLog)                                  {channel="mqtt:topic:xiaomi:LivingRoom_CS1_battery"}
 
-Number     LivingRoom_CS1_linkquality     "LivingRoom_CS1_linkquality"                <qualityofservice>    (LivingRoom)                                   {channel="mqtt:topic:xiaomi:LivingRoom_CS1_linkquality"}
+Number     LivingRoom_CS1_linkquality     "LivingRoom_CS1_linkquality"                <qualityofservice>    (LivingRoom, gSendLog)                                  {channel="mqtt:topic:xiaomi:LivingRoom_CS1_linkquality"}
 
-Number     LivingRoom_CS1_voltage         "LivingRoom_CS1_voltage"                    <energy>              (LivingRoom)                                   {channel="mqtt:topic:xiaomi:LivingRoom_CS1_voltage"}
+Number     LivingRoom_CS1_voltage         "LivingRoom_CS1_voltage"                    <energy>              (LivingRoom)                                            {channel="mqtt:topic:xiaomi:LivingRoom_CS1_voltage"}
