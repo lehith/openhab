@@ -1,4 +1,4 @@
-/////////********************************************************************////////
+/////////********************************************************************////////  
 Number    MainDoor_CS1_battery           "MainDoor_CS1_battery"            <battery>             (gSendLog)    {channel="mqtt:topic:xiaomi:MainDoor_CS1_battery"}
 
 Number    MainDoor_CS1_linkquality       "MainDoor_CS1_linkquality"        <qualityofservice>    (gSendLog)    {channel="mqtt:topic:xiaomi:MainDoor_CS1_linkquality"}
