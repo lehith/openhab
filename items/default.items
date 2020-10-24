@@ -93,3 +93,12 @@ Switch                      HNG_LedDeviceEnabled      "LED Device"              
 
 /////////********************************************************************////////
 String                      VoiceCommand                                                                                      (gSendLog)
+
+
+DateTime                    logreaderLogRotated       "Last Log Rotation [%1$tY.%1$tm.%1$te %1$tR]"         <time>                                        {channel="logreader:reader:openhablog:logRotated"}
+Number                      logreaderErrors           "Error events matched [%d]"                           <alarm>                                       {channel="logreader:reader:openhablog:errorEvents"}
+String                      logreaderLastError        "Last error [%s]"                                                                                   {channel="logreader:reader:openhablog:lastErrorEvent"}
+Number                      logreaderWarnings         "Warning events matched [%d]"                         <alarm>                                       {channel="logreader:reader:openhablog:warningEvents"}
+String                      logreaderLastWarning      "Last warning [%s]"                                                                                 {channel="logreader:reader:openhablog:lastWarningEvent"}
+Number                      logreaderCustoms          "Custom events matched [%d]"                          <alarm>                                       {channel="logreader:reader:openhablog:customEvents"}
+String                      logreaderLastCustom       "Last Custom [%s]"                                                                                  {channel="logreader:reader:openhablog:lastCustomEvent"}

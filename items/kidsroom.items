@@ -13,7 +13,7 @@ Number     KidsRoom_Humidity            "Детская влажность [%.0f
 
 Number     KidsRoom_set_Temperature     "Детская уставка температура [%.0f °C]"    <heating>             (KidsRoom)                                         {channel="mqtt:topic:kidsroom:Set_Temperature"}
 
-Number     KidsRoom_auto_Temperature    "Детская авто температура [%.0f °C]"       <heating>             (KidsRoom,KidsRoomGrafT,gSendApp)                  {channel="mqtt:topic:kidsroom:Auto_Temperature"}
+Number     KidsRoom_auto_Temperature    "Детская авто температура [%.0f °C]"       <heating>             (KidsRoom,KidsRoomGrafT,gSendLog)                  {channel="mqtt:topic:kidsroom:Auto_Temperature"}
 
 Contact    KidsRoom_Window              "Детская окно [MAP(window.map):%s]"        <window>              (KidsRoom,gSendLog,gSendApp)                       {channel="mqtt:topic:kidsroom:Window"}
 
