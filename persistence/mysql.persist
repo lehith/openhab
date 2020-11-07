@@ -56,7 +56,7 @@ Humidity_srv: 			strategy =  everyChange, restoreOnStartup
 Bathroom_Temperature: 		strategy =  everyChange, restoreOnStartup
 Bathroom_Humidity: 			strategy =  everyChange, restoreOnStartup
 Bathroom_set_Humidity: 		strategy =  everyChange, restoreOnStartup
-
+Bathroom_Chart_Period: 		strategy =  everyChange, restoreOnStartup
 PowerMeter: 				strategy =  everyChange, restoreOnStartup
 PowerMeter_night: 			strategy =  everyChange, restoreOnStartup
 PowerMeter_day: 			strategy =  everyChange, restoreOnStartup

@@ -167,8 +167,15 @@ Frame label=""	//группа управления помещением Ванн
 				Switch		item=Bathroom_Auto_Lamp		   		label="Авто свет"							valuecolor=[ON="green",OFF="yellow"]	mappings=[ON="Авто", OFF="Выкл"]
 				Switch		item=Bathroom_Blower		   		label="Вытяжка"								valuecolor=[ON="green",OFF="yellow"]	mappings=[ON="Вкл", OFF="Выкл"]
 				Switch		item=Bathroom_AutoHumidity			label="Поддержание влажности"				valuecolor=[ON="green",OFF="yellow"]	mappings=[ON="Авто", OFF="Выкл"]
-				Chart		item=BathroomGrafT period=8h refresh=300	legend=true
-				Chart		item=BathroomGrafH period=8h refresh=300	legend=true
+				Switch		item=Bathroom_Chart_Period			label="Графики" mappings=[0="OFF",1="1ч", 2="8ч", 3="24ч", 4="7д"]
+				Chart		item=BathroomGrafT period=h			refresh=3000 visibility=[Bathroom_Chart_Period==1] legend=true
+				Chart		item=BathroomGrafT period=8h		refresh=3000 visibility=[Bathroom_Chart_Period==2] legend=true
+				Chart		item=BathroomGrafT period=24h		refresh=3000 visibility=[Bathroom_Chart_Period==3] legend=true
+				Chart		item=BathroomGrafT period=W			refresh=3000 visibility=[Bathroom_Chart_Period==4] legend=true
+				Chart		item=BathroomGrafH period=h			refresh=3000 visibility=[Bathroom_Chart_Period==1] legend=true
+				Chart		item=BathroomGrafH period=8h		refresh=3000 visibility=[Bathroom_Chart_Period==2] legend=true
+				Chart		item=BathroomGrafH period=24h		refresh=3000 visibility=[Bathroom_Chart_Period==3] legend=true
+				Chart		item=BathroomGrafH period=W			refresh=3000 visibility=[Bathroom_Chart_Period==4] legend=true
 				Text		item=Bathroom_HT1_battery			label="HT1_battery"				valuecolor=[>=90="green",<49="red",>50="orange"]  visibility=[Bathroom_HT1_battery < 80]
 				Text		item=Bathroom_HT1_linkquality		label="HT1_linkquality"			valuecolor=[>=3="green",<1="orange",2="orange"]  visibility=[Bathroom_HT1_linkquality < 2]
 				Text		item=Bathroom_Switch_battery		label="Switch_battery"				valuecolor=[>=90="green",<49="red",>50="orange"] visibility=[Bathroom_Switch_battery < 80]
@@ -215,14 +222,26 @@ Frame label=""	//группа управление  Телевизором
 	{
 		Text label="Samsung TV" icon="smarttv" visibility=[SamsungTV_online ==ON]
 		{
-			Switch item=SamsungTV_Key_Code label="Chaine +/-" icon="text" mappings=[KEY_CHUP="+", KEY_CHDOWN="-"]
-			Switch item=SamsungTV_Key_Code label="Volume +/-" icon="text" mappings=[KEY_VOLUP="+", KEY_VOLDOWN="-"]
-			Switch item=SamsungTV_Key_Code label="Mute ON/OFF" icon="text" mappings=[KEY_MUTE="ON", KEY_MUTE="OFF"]
-			Switch item=SamsungTV_Key_Code label="Source" icon="text" mappings=[KEY_SOURCE="SOURCE", KEY_HDMI="HDMI",KEY_DTV="DTV" ]
-			Switch item=SamsungTV_Key_Code label="Key" icon="text" mappings=[KEY_UP="UP", KEY_DOWN="DOWN",KEY_RIGHT="RIGHT", KEY_LEFT= "LEFT" ]
-			Switch item=SamsungTV_Key_Code label="Menu" icon="text" mappings=[KEY_MENU="MENU", KEY_TOOLS="TOOLS",KEY_ENTER="ENTER", KEY_RETURN= "RETURN" ]
+			Frame label=""
+			{
+			Switch item=SamsungTV_Key_Code label="" icon="upchevron" mappings=[  KEY_CHUP="                   Chanel UP                                 "]
+			Switch item=SamsungTV_Key_Code label="" icon="downchevron" mappings=[KEY_CHDOWN="                   Chanel DOWN                           "]
+			}
+			Frame label=""
+			{
+			Switch item=SamsungTV_Key_Code label="" icon="rightchevron" mappings=[KEY_VOLUP="                   Volume +                                   "]
+			Switch item=SamsungTV_Key_Code label="" icon="leftchevron" mappings=[ KEY_VOLDOWN="                   Volume -                                    "]
+			}
+			Switch item=SamsungTV_Key_Code label="" icon="soundvolume_mute" mappings=[KEY_MUTE="Mute ON", KEY_MUTE="Mute OFF"]
+			Switch item=SamsungTV_Key_Code label="" icon="text" mappings=[KEY_SOURCE="SOURCE", KEY_HDMI="HDMI",KEY_DTV="DTV" ]
+			Switch item=SamsungTV_Key_Code label="" icon="movecontrol" mappings=[KEY_UP="UP", KEY_DOWN="DOWN",KEY_RIGHT="RIGHT", KEY_LEFT= "LEFT" ]
+			Switch item=SamsungTV_Key_Code label="" icon="text" mappings=[KEY_MENU="MENU", KEY_TOOLS="TOOLS",KEY_ENTER="ENTER", KEY_RETURN= "RETURN" ]
 		}
 		Switch item=SamsungTV_Power icon="powerbutton" mappings=[ON="ON", OFF="OFF"] visibility=[SamsungTV_online ==ON]
+		Switch item=SamsungTV_Key_Code label="" icon="upchevron" mappings=[  KEY_CHUP="                   Chanel UP                                 "] visibility=[SamsungTV_online ==ON]
+		Switch item=SamsungTV_Key_Code label="" icon="downchevron" mappings=[KEY_CHDOWN="                   Chanel DOWN                           "] visibility=[SamsungTV_online ==ON]
+		Switch item=SamsungTV_Key_Code label="" icon="rightchevron" mappings=[KEY_VOLUP="                   Volume +                                   "] visibility=[SamsungTV_online ==ON]
+		Switch item=SamsungTV_Key_Code label="" icon="leftchevron" mappings=[ KEY_VOLDOWN="                   Volume -                                    "] visibility=[SamsungTV_online ==ON]
 	}
 /////////********************************************************************////////
 Frame label=""	//группа управление ПС4

@@ -6,8 +6,8 @@ Group                       gSendLog                  "Группа отправ
 Group:Switch:OR(ON, OFF)    gHeater                   "Группа Обогреватель"                                 <radiator>        (Home)
 Group:Number:AVG            gTemperature              "Группа Температура"                                  <temperature>     (Home)
 Group:Number:AVG            gHumidity                 "Группа Влажность"                                    <humidity>        (Home)
-Group:Number:AVG            gEnergy1                  "Группа энергия"                                      <Energy1>         (Home)
-Group:Number:AVG            gEnergy2                  "Группа энергия"                                      <Energy1>         (Home)
+Group:Number:AVG            gEnergy1                  "Группа энергия"                                      <energy>          (Home)
+Group:Number:AVG            gEnergy2                  "Группа энергия"                                      <energy>          (Home)
 /////////********************************************************************////////		
 Switch                      Home_Alarm                "Режим присутствия в доме []"                         <lock>            (Home,gSendLog)             {channel="mqtt:topic:home:Home_Alarm"}
 
