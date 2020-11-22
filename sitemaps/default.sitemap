@@ -390,6 +390,22 @@ Frame label=""	//группа управление  Settings
 				Text item=logreaderLastCustom
 				Text item=logreaderLogRotated
 			}
+			Text			item=Settings	label="Sensors"  	 	icon="battery"	
+			{	
+				Text item=MainDoor_CS1_battery
+				Text item=MainDoor_Switch_battery
+				Text item=Srv_HT_battery
+				Text item=Bathroom_HT1_battery
+				Text item=Bathroom_Switch_battery
+				Text item=Bathroom_MS_battery
+				Text item=KidsRoom_HT1_battery
+				Text item=KidsRoom_HT2_battery
+				Text item=KidsRoom_CS1_battery
+				Text item=KitchenRoom_HTP1_battery
+				Text item=KitchenRoom_CS1_battery
+				Text item=LivingRoom_HT1_battery
+				Text item=LivingRoom_CS1_battery
+			}
 	
 	}
 
